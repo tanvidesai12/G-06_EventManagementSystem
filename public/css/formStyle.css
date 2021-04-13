@@ -1,0 +1,87 @@
+	.divStyle {
+	border-radius: 100px;
+	width:50%;
+	margin: 100px auto;
+	padding: 30px;
+	background-color: white;
+	opacity: 0.9;
+}
+body {
+	padding: 0px;
+	margin: 0px;
+}
+.div1 {
+	margin: 0px;
+	padding: 0px;
+	background-image: url("../images/bg.jpg");
+	width: 100%;
+	background-color: MediumTurquoise; 
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+	z-index: -1;
+	border:1px solid;
+}
+.input-container { 
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  border-bottom:1px solid lightgrey;
+  transition: 0.4s ease-in-out;
+}
+
+.icon {
+  padding: 15px;
+  color: #25003e;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width:100%;
+  padding: 10px;
+  outline: none;
+  border:none;
+}
+.input-container:hover {
+	box-shadow: 5px 10px 18px lightgrey;
+	border-bottom: none;
+}
+h2 {
+	text-shadow: 2px 2px;
+	text-align: center;
+	color:#25003e;
+	margin-bottom: 15px;
+}
+p {
+	text-align: center;
+	font-size: small;
+	margin-top: 15px;
+}
+a {
+	font-weight: bold;
+	color: black;
+}
+a:hover {
+	font-weight: bold;
+	color: black;
+}
+button {
+	border-radius: 25px;
+	background-color: #25003e;
+	border: none;
+	color: white;
+	padding: 10px 42px;
+	text-align: center;
+	text-decoration: none;
+	transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: DarkSlateBlue; /* Green */
+  color: white;
+}
+.errorMsgs {
+	color: red;
+	font-size: small;
+}

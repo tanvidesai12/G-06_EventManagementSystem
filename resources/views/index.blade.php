@@ -1,5 +1,5 @@
 @extends('master')
-@section("content")
+@section("contents")
 <head>
 	<style type="text/css">
 	.carousel{
