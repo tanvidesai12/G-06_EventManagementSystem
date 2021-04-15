@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('index');
 });
+Route::view("contact_us",'contact_us');
 Route::view("signup",'signup');
 Route::post("signup",[UserController::class,'registerUser']);
 Route::view("about","about");

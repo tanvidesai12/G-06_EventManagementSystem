@@ -32,7 +32,7 @@
         <a class="nav-link" href="#" >BOOK NOW</a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="#" >CONTACT US</a>
+        <a class="nav-link" href="contact_us" >CONTACT US</a>
       </li>
       
       <!--<li class="nav-item">
