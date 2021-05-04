@@ -20,3 +20,16 @@ Route::view("contact_us",'contact_us');
 Route::view("signup",'signup');
 Route::post("signup",[UserController::class,'registerUser']);
 Route::view("about","about");
+Route::get('/login',function(){
+	if(session()->has('user')){
+		return redirect('/');
+	}
+	return view('login');
+});
+Route::post("login",[UserController::class,'loginUser']);
+Route::get("/logout", function (){
+	if(session()->has('user')){
+		session()->pull('user');
+	}
+	return redirect('/');
+});

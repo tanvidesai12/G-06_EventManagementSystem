@@ -26,6 +26,7 @@ class UserController extends Controller
 		    echo "<script>alert('Sign up unsuccessfull!');</script>";
 		}
 		else{
+			$req->session()->put('user',$user);
 			echo "<script>alert('Sign up successfull!');</script>";
 		}
 		return view('index');
@@ -33,5 +34,15 @@ class UserController extends Controller
 		if (Hash::check('krutika', $hashedPassword)) {
     		echo "passwords match";
 		}*/
+	}
+	public function loginUser(Request $req){
+		$user=User::where(['email'=>$req->email])->first();
+		if($user || Hash::check($req->password,$user->password)){
+			$req->session()->put('user',$user);
+			return redirect('/');
+		}
+		else{
+			return "Username or password is not matched";
+		}
 	}
 }

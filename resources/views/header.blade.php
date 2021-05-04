@@ -44,7 +44,11 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>-->
 	<form class="form-inline my-2 my-lg-0">
+    @if(session()->has('user'))
+    <a href="logout" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> LOG OUT </a>
+    @else
       <a href="signup" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> SIGN UP</a>
+    @endif
   </form>
   </div>
 </nav>
