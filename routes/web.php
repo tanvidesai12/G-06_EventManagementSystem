@@ -20,6 +20,10 @@ Route::view("contact_us",'contact_us');
 Route::view("signup",'signup');
 Route::post("signup",[UserController::class,'registerUser']);
 Route::view("about","about");
+Route::view("wedding_event",'wedding_event');
+Route::view("corporate_event",'corporate_event');
+Route::view("birthday_event",'birthday_event');
+Route::view("index",'index');
 Route::get('/login',function(){
 	if(session()->has('user')){
 		return redirect('/');
