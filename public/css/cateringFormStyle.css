@@ -1,0 +1,97 @@
+div.contents {
+	text-align: center;
+	width: 100%;
+}
+.text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-shadow: 2px 2px;
+	color:#25003e;
+}
+.cateringImageStyle {
+	position: relative;
+	margin: 0px;
+}
+.design {
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	transform: translate(-55%, -50%);
+	font-weight: bolder;
+	font-size: 30px;
+	color: Darkpurple;
+}
+h4.h4Style {
+	text-align: center;
+	margin-top: 5px;
+	border-radius: 0px 15px;
+	padding: 10px;
+	background-color: #bbbb77;
+	color: white;
+}
+h3.h3Style {
+	text-shadow: 2px 2px;
+	text-align: center;
+	color: white;
+}
+.menu {
+	border-radius: 5px;
+	border: 1px solid lightgrey;
+	background-color: white;
+	margin: 10px;
+	text-align: center;
+}
+.innerDiv {
+	width:90%;
+	margin: 50px auto;
+	padding: 30px;
+	background-color: mediumseagreen;
+}
+.outerDiv {
+	background-image: url("../images/menu2.jpg");
+	width: 100%;
+	background-color: MediumTurquoise; 
+	z-index: -1;
+	border:1px solid;
+}
+.title{
+	font-weight: bold;
+	font-size: large;
+	color:#25003e;
+	text-shadow: 1px 1px;
+}
+.box {
+	border-radius: 5px;
+	padding: 5px;
+	margin: 4px;
+	width: 100%;
+	border: 1px solid lightgrey;
+}
+.subTitle {
+	font-size: medium;
+	font-weight: bold;
+	margin-top: 0px;
+}
+.subPackages {
+	display: inline-block;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	width: 30%;
+	margin-top: 10px;
+}
+.bg {
+	background-color: #E0E0E0;
+	margin-top: 0px;	
+	border-radius: 5px 5px 0px 0px;
+	padding: 5px;
+}
+.chkBox {
+	padding: 5px;
+}
+.listStyle {
+	margin: 0px auto;
+	width: 15%;
+	text-align: left;
+}
