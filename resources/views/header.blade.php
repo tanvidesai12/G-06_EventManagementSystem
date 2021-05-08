@@ -45,9 +45,9 @@
     </form>-->
 	<form class="form-inline my-2 my-lg-0">
     @if(session()->has('user'))
-    <a href="logout" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> LOG OUT </a>
+    <a href="logout" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> SIGN OUT </a>
     @else
-      <a href="login" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> LOGIN </a>
+      <a href="login" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> SIGN IN </a>
     @endif
   </form>
   </div>

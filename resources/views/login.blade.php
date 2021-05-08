@@ -2,7 +2,7 @@
 @section('contents')
 <div class="div1">
 <div class="divStyle">
-<h2>Sign In</h2>
+<h2 class="h2Style">Sign In</h2>
 
 <form action="login" method="POST">
 	@csrf
@@ -16,8 +16,8 @@
 	<input type="password" id="password" class="input-field" name="password" placeholder="Password">
 </div>
 <!-- <span class="errorMsgs">@error('password'){{$message}}@enderror</span> -->
-<center><button type="submit">Sign In</button></center>
-<p>Don't have an account?Click here to <span><a href="signup">Sign Up</a></span></p>
+<center><button class="btnStyle" type="submit">Sign In</button></center>
+<p class="paraStyle">Don't have an account?Click here to <span><a class="anchrStyle" href="signup">Sign Up</a></span></p>
 </form>
 </div>
 </div>
