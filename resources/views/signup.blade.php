@@ -1,5 +1,5 @@
-@extends('register')
-@section('content')
+@extends('master')
+@section('contents')
 <div class="div1">
 <div class="divStyle">
 <h2>Sign Up</h2>

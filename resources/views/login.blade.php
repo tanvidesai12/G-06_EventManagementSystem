@@ -1,5 +1,5 @@
-@extends('signin')
-@section('loginContent')
+@extends('master')
+@section('contents')
 <div class="div1">
 <div class="divStyle">
 <h2>Sign In</h2>

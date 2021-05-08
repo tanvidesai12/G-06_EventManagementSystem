@@ -47,7 +47,7 @@
     @if(session()->has('user'))
     <a href="logout" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> LOG OUT </a>
     @else
-      <a href="signup" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> SIGN UP</a>
+      <a href="login" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> LOGIN </a>
     @endif
   </form>
   </div>
