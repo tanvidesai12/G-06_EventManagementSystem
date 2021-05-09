@@ -3,7 +3,7 @@
 .navbar-custom{
 
 			background-color: #25003e /*#00CED1*/;
-			opacity: 0.8;
+			opacity: 0.8;			
 		
 	}
 .nav-link{
@@ -29,7 +29,7 @@
         <a class="nav-link" href="index">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" >BOOK NOW</a>
+        <a class="nav-link" href="booking_details" >BOOK NOW</a>
       </li>
 	  <li class="nav-item">
         <a class="nav-link" href="contact_us" >CONTACT US</a>
@@ -47,7 +47,7 @@
     @if(session()->has('user'))
     <a href="logout" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> SIGN OUT </a>
     @else
-      <a href="login" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> SIGN IN </a>
+      <a href="login" class="btn btn-sm  font-weight-bold pr-5 font-size"> <i class="fa fa-user" style="color:#fff;"></i> SIGN IN</a>
     @endif
   </form>
   </div>

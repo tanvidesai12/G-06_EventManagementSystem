@@ -37,4 +37,5 @@ Route::get("/logout", function (){
 	}
 	return redirect('/');
 });
+Route::view("booking_details",'booking_details');
 Route::view("catering",'catering');
