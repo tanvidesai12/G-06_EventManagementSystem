@@ -39,3 +39,4 @@ Route::get("/logout", function (){
 });
 Route::view("booking_details",'booking_details');
 Route::view("catering",'catering');
+Route::view("admin_main",'admin_main');
