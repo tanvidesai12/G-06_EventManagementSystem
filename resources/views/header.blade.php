@@ -28,9 +28,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="index">HOME <span class="sr-only">(current)</span></a>
       </li>
+      @if(session()->has('user') && (session()->get('usertype')==='customer'))
       <li class="nav-item">
         <a class="nav-link" href="booking_details" >BOOK NOW</a>
       </li>
+      @endif
 	  <li class="nav-item">
         <a class="nav-link" href="contact_us" >CONTACT US</a>
       </li>

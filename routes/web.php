@@ -33,10 +33,15 @@ Route::get('/login',function(){
 Route::post("login",[UserController::class,'loginUser']);
 Route::get("/logout", function (){
 	if(session()->has('user')){
-		session()->pull('user');
+		session()->flush();
 	}
 	return redirect('/');
 });
-Route::view("booking_details",'booking_details');
-Route::view("catering",'catering');
-Route::view("admin_main",'admin_main');
+
+Route::group(['middleware'=>['adminAuth']],function(){
+	Route::view("admin_main",'admin_main');
+});
+Route::group(['middleware'=>['custAuth']],function(){
+	Route::view("booking_details",'booking_details');
+	Route::view("catering",'catering');
+});

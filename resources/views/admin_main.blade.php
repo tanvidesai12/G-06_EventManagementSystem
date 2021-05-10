@@ -68,9 +68,7 @@
     </form>-->
 	<form class="form-inline my-2 my-lg-0">
     @if(session()->has('user'))
-    <a href="logout" class="btn  font-weight-normal pr-5 "> <i class="fa fa-user" style="color:#000;"></i> SIGN OUT </a>
-    @else
-      <a href="login" class="btn  font-weight-normal pr-5 " style="color:white;"> <i class="fa fa-user" ></i> SIGN IN</a>
+    <a href="logout" class="btn  font-weight-normal pr-5 " style="color:white;"> <i class="fa fa-user"></i> SIGN OUT </a>
     @endif
   </form>
   </div>

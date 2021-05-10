@@ -27,9 +27,11 @@ class UserController extends Controller
 		}
 		else{
 			$req->session()->put('user',$user);
+			$req->session()->put('usertype','customer');
 			echo "<script>alert('Sign up successfull!');</script>";
 		}
-		return view('index');
+		return redirect('/');
+		
 		/*$hashedPassword= Hash::make($password);
 		if (Hash::check('krutika', $hashedPassword)) {
     		echo "passwords match";
@@ -39,7 +41,14 @@ class UserController extends Controller
 		$user=User::where(['email'=>$req->email])->first();
 		if($user || Hash::check($req->password,$user->password)){
 			$req->session()->put('user',$user);
-			return redirect('/');
+			$req->session()->put('usertype',$user->usertype);
+			if(session('usertype')==='admin'){
+				return redirect('admin_main');
+			}
+			else{
+				return redirect('/');
+			}
+			
 		}
 		else{
 			return "Username or password is not matched";

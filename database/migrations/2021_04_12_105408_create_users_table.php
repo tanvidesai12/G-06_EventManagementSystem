@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('ph_num');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('usertype')->default('customer');
             $table->timestamps();
         });
     }
