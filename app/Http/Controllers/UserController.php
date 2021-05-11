@@ -31,15 +31,14 @@ class UserController extends Controller
 			echo "<script>alert('Sign up successfull!');</script>";
 		}
 		return redirect('/');
-		
-		/*$hashedPassword= Hash::make($password);
-		if (Hash::check('krutika', $hashedPassword)) {
-    		echo "passwords match";
-		}*/
 	}
 	public function loginUser(Request $req){
+		$validated = $req->validate([
+        'email' => 'required|exists:users,email',
+        'password'=>'required'
+    	]);
 		$user=User::where(['email'=>$req->email])->first();
-		if($user || Hash::check($req->password,$user->password)){
+		if($user && Hash::check($req->password,$user->password)){
 			$req->session()->put('user',$user);
 			$req->session()->put('usertype',$user->usertype);
 			if(session('usertype')==='admin'){
@@ -51,7 +50,8 @@ class UserController extends Controller
 			
 		}
 		else{
-			return "Username or password is not matched";
+			echo "<script>alert('Username or password is not matched');</script>";
+			return view('login');
 		}
 	}
 }
