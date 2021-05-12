@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DishController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,5 +44,5 @@ Route::group(['middleware'=>['adminAuth']],function(){
 });
 Route::group(['middleware'=>['custAuth']],function(){
 	Route::view("booking_details",'booking_details');
-	Route::view("catering",'catering');
+	Route::get("catering",[DishController::class,'showDish']);
 });
