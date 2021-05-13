@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DishController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FeedbackController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,9 @@ Route::get('/', function () {
     return view('index');
 });
 Route::view("contact_us",'contact_us');
+Route::post("contact_us",[ContactController::class,'save']);
+Route::view("feeback",'feedback');
+Route::post("send",[FeedbackController::class,'add']);
 Route::view("signup",'signup');
 Route::post("signup",[UserController::class,'registerUser']);
 Route::view("about","about");
