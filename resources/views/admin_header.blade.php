@@ -30,19 +30,11 @@
          Manage Venues
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-          <li><a class="dropdown-item" href="#">Add Venue</a></li>
+          <li><a class="dropdown-item" href="addVenue">Add Venue</a></li>
           <li><a class="dropdown-item" href="#">Remove Venue</a></li>
         </ul>
       </li>
-	  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-          Manage Food Items
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-          <li><a class="dropdown-item" href="#">Add new dishes</a></li>
-          <li><a class="dropdown-item" href="#">Update Dishes</a></li>
-        </ul>
-      </li>
+	 
 	   <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
           View Reviews

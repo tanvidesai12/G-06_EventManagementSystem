@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\VenueController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,3 +52,4 @@ Route::group(['middleware'=>['custAuth']],function(){
 	Route::view("booking_details",'booking_details');
 	Route::get("catering",[DishController::class,'showDish']);
 });
+Route::get("venues",[VenueController::class,'show']);
