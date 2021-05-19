@@ -145,19 +145,19 @@
 	<div id="sub">
 		<h3 style="text-align:center"><i>Book Your Venue Now:</i></h3>
 		<div id="sub1">
-			<form action="catering" >			
+			<form action="venues?id={{$id}}" method="post">			
 				<div class="form-group">
 				  <label for="venue_name" class="form-label"><b>Venue Name:</b></label>			 
 				  <select id="venue_name" class="form-control" name="venue_name">			  
 					<option selected>Choose Venue</option>
 					 @foreach($venues as $venue)
-						<option>{{$venue['venue_name']}}</option>
+						<option value="{{$venue['id']}}">{{$venue['venue_name']}}</option>
 					 @endforeach
 				  </select>				 
 				</div>			
 				<div class="form-group">
-					<label for="guests" class="form-label"><b>No. of Guests:</b></label>
-					<input type="number" class="form-control" id="guests" name="guests" min="70" max="2000" required>
+					<label for="no_of_guests" class="form-label"><b>No. of Guests:</b></label>
+					<input type="number" class="form-control" id="no_of_guests" name="no_of_guests" min="70" max="2000" required>
 				</div>
 				<div id="chooseVenue">
 					<button type="submit" class="btn btn-primary" style="font-size:20px;">BOOK VENUE</button>
