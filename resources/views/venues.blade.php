@@ -121,6 +121,11 @@
 	</style>
 </head>
 <body>
+@if(session('event'))
+    <div class="alert alert-success">
+        {{ session('event') }}
+    </div>
+@endif
 <div id="main">
 	<h2>Venues</h2>
 	<div id="container">
@@ -145,7 +150,8 @@
 	<div id="sub">
 		<h3 style="text-align:center"><i>Book Your Venue Now:</i></h3>
 		<div id="sub1">
-			<form action="venues?id={{$id}}" method="post">			
+			<form action="venues?id={{$id}}" method="post">
+				@csrf			
 				<div class="form-group">
 				  <label for="venue_name" class="form-label"><b>Venue Name:</b></label>			 
 				  <select id="venue_name" class="form-control" name="venue_name">			  
@@ -162,6 +168,7 @@
 				<div id="chooseVenue">
 					<button type="submit" class="btn btn-primary" style="font-size:20px;">BOOK VENUE</button>
 				 </div>
+				</form>
 		</div>
 		<div id="sub2">
 		</div>

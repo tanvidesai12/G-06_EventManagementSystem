@@ -31,7 +31,7 @@ class EventDetailsController extends Controller
 			echo "<script>alert('Your event details are saved successfully!!! Please book venue on next page');</script>";
 		}
 		
-		return redirect('venues?id='.$eventId);
+		return redirect('venues?id='.$eventId)->with('event', 'Your event details are saved successfully!!!Please choose a venue below.');;
 	}
 	
 	function passId()

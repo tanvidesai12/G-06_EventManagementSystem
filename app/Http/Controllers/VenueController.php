@@ -26,6 +26,6 @@ class VenueController extends Controller
 			echo "<script>alert('Your venue details are saved successfully!!!');</script>";
 		}
 	 
-	    return view('catering',['id'=>$bkId]);
+	    return redirect('catering?bkgId='.$bkId)->with('venue', 'Your venue details are saved successfully!!!');
 	}
 }

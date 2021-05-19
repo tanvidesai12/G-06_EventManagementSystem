@@ -8,7 +8,8 @@ use App\Models\Dish;
 
 class DishController extends Controller
 {
-    function showDish(){
+    function showDish(Request $req){
+        $bkgId=$req->bkgId;
     	$vegGoldPkg=PackageDish::where([['package_name', 'Veg Package'],['sub_package_name','Gold']])->get();
         $vegRubyPkg =PackageDish::where([['package_name', 'Veg Package'],['sub_package_name','Ruby']])->get();
         $vegSilverPkg =PackageDish::where([['package_name', 'Veg Package'],['sub_package_name','Silver']])->get();
@@ -20,6 +21,6 @@ class DishController extends Controller
         $beverages = Dish::where('category','Beverages')->get();
         $desserts = Dish::where('category','Desserts')->get();
 
-    	return view('catering',['vegGoldPkg'=>$vegGoldPkg,'vegRubyPkg'=>$vegRubyPkg,'vegSilverPkg'=>$vegSilverPkg,'nonVegGoldPkg'=>$nonVegGoldPkg,'nonVegRubyPkg'=>$nonVegRubyPkg,'nonVegSilverPkg'=>$nonVegSilverPkg,'beverages'=>$beverages,'mainCourse'=>$mainCourse,'desserts'=>$desserts]);
+    	return view('catering',['vegGoldPkg'=>$vegGoldPkg,'vegRubyPkg'=>$vegRubyPkg,'vegSilverPkg'=>$vegSilverPkg,'nonVegGoldPkg'=>$nonVegGoldPkg,'nonVegRubyPkg'=>$nonVegRubyPkg,'nonVegSilverPkg'=>$nonVegSilverPkg,'beverages'=>$beverages,'mainCourse'=>$mainCourse,'desserts'=>$desserts,'bkgId'=>$bkgId]);
     }
 }

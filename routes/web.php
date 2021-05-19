@@ -8,6 +8,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\EventDetailsController;
+use App\Http\Controllers\SelectedDishController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,8 +54,11 @@ Route::group(['middleware'=>['adminAuth']],function(){
 Route::group(['middleware'=>['custAuth']],function(){
 	Route::view("booking_details",'booking_details');
 	Route::get("catering",[DishController::class,'showDish']);
+	Route::post("catering/packages",[SelectedDishController::class,'addPackage']);
+	Route::post("catering/dishes",[SelectedDishController::class,'addDish']);
+	Route::post('booking_details',[EventDetailsController::class,'addData']);
+	Route::get("venues",[EventDetailsController::class,'show']);
+	Route::post('venues',[VenueController::class,'add']);
+	Route::view('electronic_equipment','electronic_equipment');
 });
 
-Route::post('booking_details',[EventDetailsController::class,'addData']);
-Route::get("venues",[EventDetailsController::class,'show']);
-Route::post('venues',[VenueController::class,'add']);

@@ -12,4 +12,8 @@ class Booking extends Model
 	{
 		return $this->belongsTo('App\Models\venue');
 	}
+	public function dishes()
+    {
+        return $this->belongsToMany(Dish::class,'selected_dishes','booking_id','dish_name');
+    }
 }

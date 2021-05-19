@@ -1,5 +1,13 @@
 @extends('master')
 @section('contents')
+@if($errors->any())
+<div class="alert alert-danger" >{{ $errors->first() }}</div>
+@endif
+@if(session('venue'))
+    <div class="alert alert-success">
+        {{ session('venue') }}
+    </div>
+@endif
 <div class="contents">
 	<img src="images/cateringBackground.jpg" width="100%" height="600px"/>
 	<h1 class="text">Swaad Caterers</h1>
@@ -92,32 +100,34 @@
 					</ul> 
 				</div>
 			</div> 	
-			<form style="padding: 10px;">
+			<form action="catering/packages?bkgId={{ $bkgId }}" method="POST" style="padding: 10px;">
+				@csrf
 				<fieldset style="border: 1px solid lightgrey;padding: 50px;">
     				<legend style="width: auto;font-style: italic;text-shadow: 1px 1px;">Book Your Order Now:</legend>
     				<div style="text-align: left;">
 					<label>Select Veg Package:</label>
 						<select name="vegFoodPackages" class="custom-select">
-							<option selected>--Choose Package--</option>
+							<option selected value="none">--Choose Package--</option>
 							<option value="Silver">Silver</option>
 							<option value="Ruby">Ruby</option>
 							<option value="Gold">Gold</option>
 						</select>
 						<label>Select Non-Veg Package:</label>
 						<select name="nonVegFoodPackages" class="custom-select">
-							<option selected>--Choose Package--</option>
+							<option selected value="none">--Choose Package--</option>
 							<option value="Silver">Silver</option>
 							<option value="Ruby">Ruby</option>
 							<option value="Gold">Gold</option>
 						</select>
 					</div>
-					<button type="submit" class="btn btn-outline-dark" style="margin-top: 20px;">Place Order</button>
+					<button type="submit" class="btn btn-outline-dark" style="margin-top: 20px;">Next</button>
 				</fieldset>	
 			</form>
 		  </div>
 		  <div class="tab-pane container fade menu" id="planmenu">
 		  	<h4 class="h4Style">Plan Your Menu</h4>
-		  		<form>
+		  		<form action="catering/dishes?bkgId={{ $bkgId }}" method="POST">
+		  			@csrf
 				<div id="accordion">
 
 				  <div class="card">
@@ -130,7 +140,7 @@
 				    	<div class="listStyle">
 				    	@foreach($mainCourse as $mainCourseDish)
 						<div class="custom-control custom-checkbox chkBox">
-					    	<input type="checkbox" class="custom-control-input" id="{{ $mainCourseDish->dish_name }}" name="{{ $mainCourseDish->dish_name }}">
+					    	<input type="checkbox" class="custom-control-input" id="{{ $mainCourseDish->dish_name }}" value="{{ $mainCourseDish->dish_name }}" name="dish_list[]" >
 					    	<label class="custom-control-label" for="{{ $mainCourseDish->dish_name }}">{{ $mainCourseDish->dish_name }}</label>
 						</div>
 						@endforeach
@@ -148,7 +158,7 @@
 				      <div class="listStyle">
 				      @foreach($desserts as $dessertDish)
 				      <div class="custom-control custom-checkbox chkBox">
-					    	<input type="checkbox" class="custom-control-input" id="{{ $dessertDish->dish_name }}" name="{{ $dessertDish->dish_name }}">
+					    	<input type="checkbox" class="custom-control-input" id="{{ $dessertDish->dish_name }}" value="{{ $dessertDish->dish_name }}" name="dish_list[]">
 					    	<label class="custom-control-label" for="{{ $dessertDish->dish_name }}">{{ $dessertDish->dish_name }}</label>
 					  </div>
 					  @endforeach
@@ -166,7 +176,7 @@
 				    	<div class="listStyle">
 				    	@foreach($beverages as $beverageDish)
 				    	<div class="custom-control custom-checkbox chkBox">
-					    	<input type="checkbox" class="custom-control-input" id="{{ $beverageDish->dish_name }}" name="{{ $beverageDish->dish_name }}">
+					    	<input type="checkbox" class="custom-control-input" id="{{ $beverageDish->dish_name }}" value="{{ $beverageDish->dish_name }}" name="dish_list[]">
 					    	<label class="custom-control-label" for="{{ $beverageDish->dish_name }}">{{ $beverageDish->dish_name }}</label>
 						</div>
 						@endforeach
@@ -174,7 +184,7 @@
 					</div>
 				  </div>
 				</div>
-				<button type="submit" class="btn btn-outline-dark" style="margin: 20px;">Place Order</button>
+				<button type="submit" class="btn btn-outline-dark" style="margin: 20px;">Next</button>
 				</form>
 		  </div>
 		</div>
