@@ -40,12 +40,12 @@
           View Reviews
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-          <li><a class="dropdown-item" href="#">View Feedback</a></li>
+          <li><a class="dropdown-item" href="admin_feedback">View Feedback</a></li>
         
         </ul>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" >Customer Enquiry</a>
+        <a class="nav-link" href="admin_contactus" >Customer Enquiry</a>
       </li>
       <!--<li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

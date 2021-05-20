@@ -9,6 +9,9 @@ use App\Http\Controllers\VenueController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\EventDetailsController;
 use App\Http\Controllers\SelectedDishController;
+use App\Http\Controllers\musicController;
+use App\Http\Controllers\AdminFeedbackController;
+use App\Http\Controllers\AdminContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +53,7 @@ Route::get("/logout", function (){
 
 Route::group(['middleware'=>['adminAuth']],function(){
 	Route::view("admin_main",'admin_main');
+	
 });
 Route::group(['middleware'=>['custAuth']],function(){
 	Route::view("booking_details",'booking_details');
@@ -59,6 +63,7 @@ Route::group(['middleware'=>['custAuth']],function(){
 	Route::post('booking_details',[EventDetailsController::class,'addData']);
 	Route::get("venues",[EventDetailsController::class,'show']);
 	Route::post('venues',[VenueController::class,'add']);
-	Route::view('electronic_equipment','electronic_equipment');
+	Route::view('music','music');
 });
-
+Route::get("admin_feedback",[AdminFeedbackController::class,'viewfeedbacks']);
+Route::get("admin_contactus",[AdminContactController::class,'viewcontacts']);

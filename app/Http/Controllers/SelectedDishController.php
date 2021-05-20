@@ -55,6 +55,6 @@ class SelectedDishController extends Controller
 	    		$booking->dishes()->attach($nonVegDishes);
 	    	}
     	}
-    	return redirect('electronic_equipment')->with('status', 'Dishes Added successfully!Please choose electronic equipments below.');
+    	return redirect('music')->with('status', 'Dishes Added successfully!Please choose electronic equipments below.');
     }
 }
