@@ -5,7 +5,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\addVenueController;
 use App\Http\Controllers\VenueController;
+use App\Http\Controllers\RemoveVenueController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\EventDetailsController;
 use App\Http\Controllers\SelectedDishController;
@@ -67,3 +69,10 @@ Route::group(['middleware'=>['custAuth']],function(){
 });
 Route::get("admin_feedback",[AdminFeedbackController::class,'viewfeedbacks']);
 Route::get("admin_contactus",[AdminContactController::class,'viewcontacts']);
+
+Route::post("addVenue",[addVenueController::class,'addvenue']);
+Route::view("addVenue",'addVenue');
+
+Route::get('removeVenue',[RemoveVenueController::class,'show']);
+Route::post("removeVenue",[RemoveVenueController::class,'remove']);
+

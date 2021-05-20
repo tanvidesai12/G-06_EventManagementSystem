@@ -22,7 +22,7 @@ class SelectedDishController extends Controller
     		$booking=Booking::find($bkgId);
     		$booking->dishes()->attach($dish_list);
 		}  
-		return redirect('electronic_equipment')->with('status', 'Dishes Added successfully!Please choose electronic equipments below.');
+		return redirect('music')->with('status', 'Dishes Added successfully!Please choose electronic equipments below.');
     }
     function addPackage(Request $req){
     	$bkgId=$req->bkgId;

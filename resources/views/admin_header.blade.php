@@ -31,7 +31,7 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
           <li><a class="dropdown-item" href="addVenue">Add Venue</a></li>
-          <li><a class="dropdown-item" href="#">Remove Venue</a></li>
+          <li><a class="dropdown-item" href="removeVenue">Remove Venue</a></li>
         </ul>
       </li>
 	 

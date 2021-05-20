@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class venue extends Model
 {
     use HasFactory;
+	public $timestamps=false;
 	function bookings()
 	{
 		return $this->hasMany(Booking::class);
 	}
+	
 }
