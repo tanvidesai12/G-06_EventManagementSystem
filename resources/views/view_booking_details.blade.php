@@ -21,6 +21,14 @@
 			<td>{{ $dish->price }}</td>
 		</tr>
 		@endforeach
+		<tr>
+			<td>Total</td>
+			<td>{{ $catering }}</td>
+		</tr>
+		<tr>
+			<td style="font-weight: bold;">Grand Total[No. of guests * cost per plate]</td>
+			<td>{{ $catering_total }}</td>
+		</tr>
 	</tbody>
 </table>
 @if(!$present->isEmpty() && !$reviewPresent)

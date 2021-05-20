@@ -30,7 +30,12 @@ class ViewBookingsController extends Controller
             })->where('event_date', '<=', date('Y-m-d'))->get();
         $reviewPresent=Booking::find($bId)->reviews;
         $cancellation = Booking::find($bId);
-    	return view('view_booking_details',['dishes'=>$dishes,'bId'=>$bId,'present'=>$present,'reviewPresent'=>$reviewPresent,'cancellation'=>$cancellation]);
+        $catering=Dish::whereIn('dish_name', function($query) use ($bId) {
+			    $query->select('dish_name')->from('selected_dishes')->where('booking_id',$bId);
+			})->sum('price');
+        $booking=Booking::find($bId);
+        $catering_total=$catering * $booking->no_of_guests;
+    	return view('view_booking_details',['dishes'=>$dishes,'bId'=>$bId,'present'=>$present,'reviewPresent'=>$reviewPresent,'cancellation'=>$cancellation,'catering'=>$catering,'catering_total'=>$catering_total]);
     }
     function cancelBooking(Request $req){
        $bId=$req->bkgId;
