@@ -41,7 +41,7 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
           <li><a class="dropdown-item" href="admin_feedback">View Feedback</a></li>
-        
+          <li><a class="dropdown-item" href="admin_view_reviews">View Reviews</a></li>
         </ul>
       </li>
       <li class="nav-item">

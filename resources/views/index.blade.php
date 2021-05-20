@@ -73,6 +73,21 @@
 	}
 	</style>
 </head>
+@if(session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
+@if(session('cancelled'))
+    <div class="alert alert-success">
+        {{ session('cancelled') }}
+    </div>
+@endif
+@if($errors->any())
+	<div class="alert alert-danger">
+	        {{ $errors->first() }}
+	</div>
+@endif
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	  <ol class="carousel-indicators">
 		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -141,5 +156,7 @@
   </div>
 </div>
 </div>
-
+@if($revs!=null)
+@include('view_reviews',['revs'=>$revs,'id'=>$id,'events'=>$events])
+@endif
 @endsection

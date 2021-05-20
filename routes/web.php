@@ -14,6 +14,8 @@ use App\Http\Controllers\SelectedDishController;
 use App\Http\Controllers\musicController;
 use App\Http\Controllers\AdminFeedbackController;
 use App\Http\Controllers\AdminContactController;
+use App\Http\Controllers\ViewBookingsController;
+use App\Http\Controllers\ReviewsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +27,8 @@ use App\Http\Controllers\AdminContactController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/',[ReviewsController::class,'viewReviews']);
+Route::get("index",[ReviewsController::class,'viewReviews']);
 Route::view("contact_us",'contact_us');
 Route::post("contact_us",[ContactController::class,'save']);
 Route::view("feeback",'feedback');
@@ -38,7 +39,6 @@ Route::view("about","about");
 Route::view("wedding_event",'wedding_event');
 Route::view("corporate_event",'corporate_event');
 Route::view("birthday_event",'birthday_event');
-Route::view("index",'index');
 Route::get('/login',function(){
 	if(session()->has('user')){
 		return redirect('/');
@@ -55,6 +55,13 @@ Route::get("/logout", function (){
 
 Route::group(['middleware'=>['adminAuth']],function(){
 	Route::view("admin_main",'admin_main');
+	Route::get("admin_view_reviews",[ReviewsController::class,'viewReviewsAdmin']);
+
+	Route::post("addVenue",[addVenueController::class,'addvenue']);
+	Route::view("addVenue",'addVenue');
+
+	Route::get('removeVenue',[RemoveVenueController::class,'show']);
+	Route::post("removeVenue",[RemoveVenueController::class,'remove']);
 	
 });
 Route::group(['middleware'=>['custAuth']],function(){
@@ -66,13 +73,13 @@ Route::group(['middleware'=>['custAuth']],function(){
 	Route::get("venues",[EventDetailsController::class,'show']);
 	Route::post('venues',[VenueController::class,'add']);
 	Route::view('music','music');
+	Route::get("add_review",[ReviewsController::class,'addReview']);
+	Route::post("add_review",[ReviewsController::class,'submitReview']);
+	Route::get("view_bookings",[ViewBookingsController::class,'showBookings']);
+	Route::get("view_booking_details",[ViewBookingsController::class,'showBookingDetails']);
+	Route::get("cancel_booking",[ViewBookingsController::class,'cancelBooking']);
 });
 Route::get("admin_feedback",[AdminFeedbackController::class,'viewfeedbacks']);
 Route::get("admin_contactus",[AdminContactController::class,'viewcontacts']);
 
-Route::post("addVenue",[addVenueController::class,'addvenue']);
-Route::view("addVenue",'addVenue');
-
-Route::get('removeVenue',[RemoveVenueController::class,'show']);
-Route::post("removeVenue",[RemoveVenueController::class,'remove']);
 

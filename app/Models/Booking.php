@@ -16,4 +16,12 @@ class Booking extends Model
     {
         return $this->belongsToMany(Dish::class,'selected_dishes','booking_id','dish_name');
     }
+     public function reviews()
+    {
+        return $this->hasOne('App\Models\Review');
+    }
+ 	public function events()
+    {
+        return $this->hasOne('App\Models\EventDetail');
+    }
 }

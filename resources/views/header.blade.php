@@ -30,7 +30,10 @@
       </li>
       @if(session()->has('user') && (session()->get('usertype')==='customer'))
       <li class="nav-item">
-        <a class="nav-link" href="booking_details" >BOOK NOW</a>
+        <a class="nav-link" href="booking_details">BOOK NOW</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="view_bookings" >VIEW BOOKINGS</a>
       </li>
       @endif
 	  <li class="nav-item">
