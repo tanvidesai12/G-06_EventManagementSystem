@@ -1,16 +1,50 @@
 @extends('master')
 @section('contents')
+<head>
+	<style>
+	.details{
+		width:70%;
+		padding:20px;
+		margin:10px auto;
+		border-radius:20px;
+		background-image: linear-gradient(to right,#60beff ,#c6e7ff ); 
+	}
+	table{
+		margin:30px auto;
+	}
+	h3{
+		margin-top:50px;
+	}
+	
+	th{
+		background:#7ac7ff  ; 
+	}
+	tr:nth-child(odd) {
+		background-color: #c6e7ff;
+		}
 
+	
+	</style>
+</head>
 @if($errors->any())
 	<div class="alert alert-danger">
 	        {{ $errors->first() }}
 	</div>
 @endif
+@foreach($venues as $venue)
+	<div class="details">
+		<h4 style="color:white">Venue Details</h4>
+		<p class="d-inline-block"><span class="font-weight-bold">Name:</span> {{ $venue->venue_name }} </p><br>
+		<p class="d-inline-block"><span class="font-weight-bold">Address:</span> {{ $venue->address }} </p><br>
+		<p class="d-inline-block"><span class="font-weight-bold"> Price: </span> {{ $venue->price }}</p>
+	</div>
+@endforeach
 <div style="margin: 20px auto; width:70%;">
-<table class="table table-striped">
+<h3>Catering Bill</h3>
+<table class="table">
 	<thead>
 		<tr>
-			<th>Particulars</th>
+			<th>Dish Name</th>
 			<th>Price</th>
 		</tr>
 	</thead>
@@ -25,9 +59,39 @@
 			<td>Total</td>
 			<td>{{ $catering }}</td>
 		</tr>
-		<tr>
+		<tr style="background-color:#7aa6ff">
 			<td style="font-weight: bold;">Grand Total[No. of guests * cost per plate]</td>
+			<td >{{ $catering_total }}</td>
+		</tr>
+	</tbody>
+</table>
+<h3>Total Bill</h3>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Particulars</th>
+			<th>Cost</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		<tr>
+			<td>Venue</td>
+			@foreach($venues as $venue)
+				<td>{{ $venue->price }}</td>
+			@endforeach
+		</tr>
+		<tr>
+			<td>Catering</td>
 			<td>{{ $catering_total }}</td>
+		</tr>
+		<tr style="background-color:#7aa6ff">
+			<td style="font-weight: bold;">Grand Total:</td>
+			<td>{{ $catering_total + $venue->price }}</td>
+		</tr>
+		<tr>
+			<td style="font-weight: bold;">Payment status (Advanced):</td>
+			<td>Paid</td>
 		</tr>
 	</tbody>
 </table>

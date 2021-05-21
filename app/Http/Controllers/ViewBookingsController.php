@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Booking;
 use App\Models\SelectedDish;
 use App\Models\Dish;
 use App\Models\event_detail;
+use App\Models\venue;
 use DateTime;
 class ViewBookingsController extends Controller
 {
@@ -20,6 +22,7 @@ class ViewBookingsController extends Controller
             })->get();
     	return view('view_bookings',['bookings'=>$bookings,'events'=>$events]);
     }
+	
     function showBookingDetails(Request $req){
         $bId=$req->bkgId;
     	$dishes=Dish::whereIn('dish_name', function($query) use ($bId) {
@@ -35,8 +38,10 @@ class ViewBookingsController extends Controller
 			})->sum('price');
         $booking=Booking::find($bId);
         $catering_total=$catering * $booking->no_of_guests;
-    	return view('view_booking_details',['dishes'=>$dishes,'bId'=>$bId,'present'=>$present,'reviewPresent'=>$reviewPresent,'cancellation'=>$cancellation,'catering'=>$catering,'catering_total'=>$catering_total]);
+    	$venues= DB::table('venues')->join('bookings','venues.id',"=",'bookings.venue_id')->select('venues.venue_name','venues.address','venues.price')->where('bookings.id',$bId)->get();
+		return view('view_booking_details',['dishes'=>$dishes,'bId'=>$bId,'present'=>$present,'reviewPresent'=>$reviewPresent,'cancellation'=>$cancellation,'catering'=>$catering,'catering_total'=>$catering_total,'venues'=>$venues]);
     }
+	
     function cancelBooking(Request $req){
        $bId=$req->bkgId;
        $cancellation = Booking::find($bId);

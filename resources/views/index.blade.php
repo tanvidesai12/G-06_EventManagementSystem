@@ -123,15 +123,12 @@
 			  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
-			  </a>
-	  
+			  </a>	  
 	</div>
 </div>
-<div>
-<!--
-<div class="about">
-</div>	-->
 @include('about')
+<div id="gallery">
+
 <h2 style="text-align:center">GALLERY</h2>
 <div class="card-deck">
   <div class="card">

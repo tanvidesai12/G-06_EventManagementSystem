@@ -16,6 +16,7 @@ use App\Http\Controllers\AdminFeedbackController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\ViewBookingsController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\BillDetailsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,7 +73,7 @@ Route::group(['middleware'=>['custAuth']],function(){
 	Route::post('booking_details',[EventDetailsController::class,'addData']);
 	Route::get("venues",[EventDetailsController::class,'show']);
 	Route::post('venues',[VenueController::class,'add']);
-	Route::view('music','music');
+	Route::get("bill_details",[BillDetailsController::class,'showBillDetails']);
 	Route::get("add_review",[ReviewsController::class,'addReview']);
 	Route::post("add_review",[ReviewsController::class,'submitReview']);
 	Route::get("view_bookings",[ViewBookingsController::class,'showBookings']);
