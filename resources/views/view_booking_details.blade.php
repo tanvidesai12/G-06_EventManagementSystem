@@ -36,7 +36,7 @@
 		<h4 style="color:white">Venue Details</h4>
 		<p class="d-inline-block"><span class="font-weight-bold">Name:</span> {{ $venue->venue_name }} </p><br>
 		<p class="d-inline-block"><span class="font-weight-bold">Address:</span> {{ $venue->address }} </p><br>
-		<p class="d-inline-block"><span class="font-weight-bold"> Price: </span> {{ $venue->price }}</p>
+		<p class="d-inline-block"><span class="font-weight-bold"> Price: </span>&#8377;  {{ $venue->price }}</p>
 	</div>
 @endforeach
 <div style="margin: 20px auto; width:70%;">
@@ -52,16 +52,16 @@
 		@foreach($dishes as $dish)
 		<tr>
 			<td>{{ $dish->dish_name }}</td>
-			<td>{{ $dish->price }}</td>
+			<td>&#8377; {{ $dish->price }}</td>
 		</tr>
 		@endforeach
 		<tr>
 			<td>Total</td>
-			<td>{{ $catering }}</td>
+			<td>&#8377; {{ $catering }}</td>
 		</tr>
 		<tr style="background-color:#7aa6ff">
 			<td style="font-weight: bold;">Grand Total[No. of guests * cost per plate]</td>
-			<td >{{ $catering_total }}</td>
+			<td >&#8377; {{ $catering_total }}</td>
 		</tr>
 	</tbody>
 </table>
@@ -78,16 +78,20 @@
 		<tr>
 			<td>Venue</td>
 			@foreach($venues as $venue)
-				<td>{{ $venue->price }}</td>
+				<td>&#8377; {{ $venue->price }}</td>
 			@endforeach
 		</tr>
 		<tr>
 			<td>Catering</td>
-			<td>{{ $catering_total }}</td>
+			<td>&#8377; {{ $catering_total }}</td>
 		</tr>
 		<tr style="background-color:#7aa6ff">
 			<td style="font-weight: bold;">Grand Total:</td>
-			<td>{{ $catering_total + $venue->price }}</td>
+			<td>&#8377; {{ $catering_total + $venue->price }}</td>
+		</tr>
+		<tr>
+			<td style="font-weight: bold;">Advance amount paid:</td>
+			<td> &#8377; {{ (($catering_total + $venue->price) * 0.5) }} </td>
 		</tr>
 		<tr>
 			<td style="font-weight: bold;">Payment status (Advanced):</td>

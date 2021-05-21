@@ -35,6 +35,31 @@
 
 
 <div style="margin: 20px auto; width:70%;">
+	<h3>Catering Bill</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Dish Name</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($dishes as $dish)
+			<tr>
+				<td>{{ $dish->dish_name }}</td>
+				<td> &#8377;{{ $dish->price }}</td>
+			</tr>
+			@endforeach
+			<tr>
+				<td>Total</td>
+				<td>&#8377; {{ $catering }}</td>
+			</tr>
+			<tr style="background-color:#7aa6ff">
+				<td style="font-weight: bold;">Grand Total[No. of guests * cost per plate]</td>
+				<td >&#8377; {{ $catering_total }}</td>
+			</tr>
+		</tbody>
+	</table>
 	<h3>Total Bill</h3>
 	<table class="table">
 		<thead>
@@ -48,23 +73,24 @@
 			<tr>
 				<td>Venue</td>
 				@foreach($venues as $venue)
-				<td>{{ $venue->price }}</td>
+				<td> &#8377;{{ $venue->price }}</td>
 				@endforeach
 			</tr>
 			<tr>
 				<td>Catering</td>
-				<td></td>
+				<td> &#8377;{{ $catering_total }}</td>
 			</tr>
 			<tr style="background-color: #c6e7ff;">
 				<td style="font-weight: bold;">Grand Total:</td>
-				<td></td>
+				<td> &#8377; {{ $catering_total+$venue->price }}</td>
 			</tr>
 			
 		</tbody>
 	</table>
+	<p style="font-size: large;"><span style="font-weight: bolder;">Advance amount payable:</span> &#8377; {{ $advance }} </p>
 </div>
 <div class="info">
-  <p><strong>&nbspTerms and Condition!!</strong><br>&nbsp To confirm booking adavance payment needs to be done.<br>
+  <p><strong>&nbspTerms and Condition!!</strong><br>&nbsp To confirm booking advance payment needs to be done.<br>
   &nbsp No refund of advance payment if booking is cancelled.<br>
   &nbsp For decoration and Music bookings you need to contact us</p>
   &nbsp <input id="checkbox" type="checkbox" required>
