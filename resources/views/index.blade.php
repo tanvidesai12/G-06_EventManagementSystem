@@ -132,11 +132,8 @@
 	  
 	</div>
 </div>
-<div>
-<!--
-<div class="about">
-</div>	-->
 @include('about')
+<div id="gallery">
 <h2 style="text-align:center">GALLERY</h2>
 <div class="card-deck">
   <div class="card">
