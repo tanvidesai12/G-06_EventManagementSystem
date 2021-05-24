@@ -11,7 +11,7 @@ use App\Http\Controllers\RemoveVenueController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\EventDetailsController;
 use App\Http\Controllers\SelectedDishController;
-use App\Http\Controllers\musicController;
+use App\Http\Controllers\MusicController;
 use App\Http\Controllers\AdminFeedbackController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\ViewBookingsController;
@@ -81,6 +81,7 @@ Route::group(['middleware'=>['custAuth']],function(){
 	Route::get("view_bookings",[ViewBookingsController::class,'showBookings']);
 	Route::get("view_booking_details",[ViewBookingsController::class,'showBookingDetails']);
 	Route::get("cancel_booking",[ViewBookingsController::class,'cancelBooking']);
+	Route::get('music',[MusicController::class,'showbands']);
 });
 Route::get("admin_feedback",[AdminFeedbackController::class,'viewfeedbacks']);
 Route::get("admin_contactus",[AdminContactController::class,'viewcontacts']);
