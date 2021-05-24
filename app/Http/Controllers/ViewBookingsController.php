@@ -30,7 +30,7 @@ class ViewBookingsController extends Controller
 			})->get();
         $present=event_detail::where('id', function($query) use ($bId) {
                 $query->select('event_id')->from('bookings')->where('id',$bId);
-            })->where('event_date', '<=', date('Y-m-d'))->get();
+            })->where('event_date', '<', date('Y-m-d'))->get();
         $reviewPresent=Booking::find($bId)->reviews;
         $cancellation = Booking::find($bId);
         $catering=Dish::whereIn('dish_name', function($query) use ($bId) {
@@ -47,7 +47,7 @@ class ViewBookingsController extends Controller
        $cancellation = Booking::find($bId);
        $present=event_detail::where('id', function($query) use ($bId) {
                 $query->select('event_id')->from('bookings')->where('id',$bId);
-            })->where('event_date', '<=', date('Y-m-d'))->get();
+            })->where('event_date', '<', date('Y-m-d'))->get();
        if($cancellation && $present && $cancellation->booking_status!='Cancelled'){
            $cancellation->booking_status='Cancelled';
            $cancellation->save();

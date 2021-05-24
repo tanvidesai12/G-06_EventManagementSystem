@@ -17,6 +17,8 @@ use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\ViewBookingsController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\BillDetailsController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,5 +84,7 @@ Route::group(['middleware'=>['custAuth']],function(){
 });
 Route::get("admin_feedback",[AdminFeedbackController::class,'viewfeedbacks']);
 Route::get("admin_contactus",[AdminContactController::class,'viewcontacts']);
-
-
+Route::get('forget-password', [ForgotPasswordController::class,'getEmail']);
+Route::post('forget-password', [ForgotPasswordController::class,'postEmail']);
+Route::get('reset-password/{token}', [ResetPasswordController::class,'getPassword']);
+Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);

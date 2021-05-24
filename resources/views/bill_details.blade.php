@@ -32,8 +32,11 @@
 	        {{ $errors->first() }}
 	</div>
 @endif
-
-
+@if(session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 <div style="margin: 20px auto; width:70%;">
 	<h3>Catering Bill</h3>
 	<table class="table">
@@ -87,7 +90,7 @@
 			
 		</tbody>
 	</table>
-	<p style="font-size: large;"><span style="font-weight: bolder;">Advance amount payable:</span> &#8377; {{ $advance }} </p>
+	<p style="font-size: large;"><span style="font-weight: bolder;">Advance amount payable:</span> &#8377; {{ (($catering_total+$venue->price) * 0.5) }} </p>
 </div>
 <div class="info">
   <p><strong>&nbspTerms and Condition!!</strong><br>&nbsp To confirm booking advance payment needs to be done.<br>

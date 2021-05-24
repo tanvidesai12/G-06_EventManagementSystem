@@ -1,6 +1,16 @@
 @extends('master')
 @section('contents')
 <div class="div1">
+@if($errors->any())
+	<div class="alert alert-danger">
+	        {{ $errors->first() }}
+	</div>
+@endif
+@if (session('message'))
+     <div class="alert alert-success" role="alert">
+        {{ session('message') }}
+    </div>
+@endif
 <div class="divStyle">
 <h2 class="h2Style">Sign In</h2>
 
@@ -17,6 +27,7 @@
 </div>
 <span class="errorMsgs">@error('password'){{$message}}@enderror</span> 
 <center><button class="btnStyle" type="submit">Sign In</button></center>
+<center><a href="forget-password">Forgot your password?</a></center>
 <p class="paraStyle">Don't have an account?Click here to <span><a class="anchrStyle" href="signup">Sign Up</a></span></p>
 </form>
 </div>

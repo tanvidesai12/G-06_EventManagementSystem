@@ -23,14 +23,13 @@ class UserController extends Controller
 		$user->password = Hash::make($password);
 		$saved=$user->save();
 		if(!$saved){
-		    echo "<script>alert('Sign up unsuccessfull!');</script>";
+		    return back()->withErrors('Sign up unsuccessfull!!');
 		}
 		else{
 			$req->session()->put('user',$user);
 			$req->session()->put('usertype','customer');
-			echo "<script>alert('Sign up successfull!');</script>";
-		}
-		return redirect('/');
+			return redirect('/')->with('message', 'Sign up successfull!!');
+		}		
 	}
 	public function loginUser(Request $req){
 		$validated = $req->validate([
@@ -42,16 +41,15 @@ class UserController extends Controller
 			$req->session()->put('user',$user);
 			$req->session()->put('usertype',$user->usertype);
 			if(session('usertype')==='admin'){
-				return redirect('admin_main');
+				return redirect('admin_main')->with('message', 'Log in successfull!!');
 			}
 			else{
-				return redirect('/');
+				return redirect('/')->with('message', 'Log in successfull!!');
 			}
 			
 		}
 		else{
-			echo "<script>alert('Username or password is not matched');</script>";
-			return view('login');
+			return back()->withErrors('Username or password is not matched.');
 		}
 	}
 }

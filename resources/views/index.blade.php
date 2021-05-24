@@ -88,6 +88,11 @@
 	        {{ $errors->first() }}
 	</div>
 @endif
+@if (session('message'))
+     <div class="alert alert-success" role="alert">
+        {{ session('message') }}
+    </div>
+@endif
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	  <ol class="carousel-indicators">
 		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -123,12 +128,15 @@
 			  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
-			  </a>	  
+			  </a>
+	  
 	</div>
 </div>
+<div>
+<!--
+<div class="about">
+</div>	-->
 @include('about')
-<div id="gallery">
-
 <h2 style="text-align:center">GALLERY</h2>
 <div class="card-deck">
   <div class="card">

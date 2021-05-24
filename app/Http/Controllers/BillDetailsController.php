@@ -22,13 +22,9 @@ class BillDetailsController extends Controller
          $catering=Dish::whereIn('dish_name', function($query) use ($bId) {
 			      $query->select('dish_name')->from('selected_dishes')->where('booking_id',$bId);
 			  })->sum('price');
-         $venue_cost=venue::where('id', function($query) use ($bId) {
-			      $query->select('venue_id')->from('bookings')->where('id',$bId);
-			  })->sum('price');
           $booking=Booking::find($bId);
           $catering_total=$catering * $booking['no_of_guests'];
-          $advance=($catering_total+$venue_cost) * 0.5;
           $venues= DB::table('venues')->join('bookings','venues.id',"=",'bookings.venue_id')->select('venues.venue_name','venues.address','venues.price')->where('bookings.id',$bId)->get();
-		 return view('bill_details',['bId'=>$bId,'venues'=>$venues,'dishes'=>$dishes,'catering'=>$catering,'catering_total'=>$catering_total,'advance'=>$advance]);
+		 return view('bill_details',['bId'=>$bId,'venues'=>$venues,'dishes'=>$dishes,'catering'=>$catering,'catering_total'=>$catering_total]);
 	}
 }

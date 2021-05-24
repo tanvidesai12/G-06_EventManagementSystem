@@ -1,6 +1,11 @@
 @extends('master')
 @section('contents')
 <div class="div1">
+@if($errors->any())
+	<div class="alert alert-danger">
+	        {{ $errors->first() }}
+	</div>
+@endif
 <div class="divStyle">
 <h2 class="h2Style">Sign Up</h2>
 

@@ -23,7 +23,7 @@ class ReviewsController extends Controller
     	$present=Booking::find($bId)->reviews;
     	$event=event_detail::where('id', function($query) use ($bId) {
                 $query->select('event_id')->from('bookings')->where('id',$bId);
-            })->where('event_date', '<=', date('Y-m-d'))->get();
+            })->where('event_date', '<', date('Y-m-d'))->get();
     	if($present){
     		return redirect('view_booking_details?bkgId='.$bId)->withErrors('You have already added a review for this event!');
     	}
