@@ -19,6 +19,8 @@ class addVenueController extends Controller
 		$venue->venue_name=$req->venue_name;
 		$venue->address=$req->address;
 		$venue->price=$req->price;
+		$venue->lat=$req->lat;
+		$venue->lng=$req->lng;
 		$venue->capacity=$req->capacity;
 		//$venue->venue_image=$req->venue_image;
 		$file=$req->file('venue_image');

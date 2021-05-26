@@ -19,6 +19,8 @@ class CreateVenuesTable extends Migration
 			$table->string('address');
 			$table->string('price');
 			$table->integer('capacity');
+			$table->float('lat');
+			$table->float('lng');
 			$table->string('venue_image');
             $table->timestamps();
         });

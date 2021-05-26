@@ -1,6 +1,9 @@
 @extends('master')
 @section("contents")
 <head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
 	<style type="text/css">
 	body{
 		background-image:url('/images/bg2.jpg');
@@ -42,77 +45,85 @@
 		#sub{
 			width:65%;
 			height:500px;
-			border:1px solid yellow;
-			background-color:white;
+			border:6px solid yellow;
 			margin:0px auto;
 			padding:10px;
+			background-image:url('/images/bg_form.jpg');
+			background-repeat:no-repeat;
+			background-size:cover;
+		
+			
 		}
 		#sub1{
 			width:50%;
 			height:400px;
-			border:1px solid red;
+			border:6px solid #faaca8;
 			float:left;
 			margin:10px;
 			padding:30px;
 			 background-image: linear-gradient(to right,#ddd6f3  ,	#faaca8); 
 		}
-		#sub2{
-			width:42%;
+		#mymap{
+			width:43%;
 			height:400px;
-			border:1px solid red;
+			border:6px solid #ddd6f3;
 			float:left;
 			margin:10px;
 		}
-		
+			
 	}
 	@media screen and (max-width: 1063px) and (min-width:900px){
 		#sub{
 			width:80%;
 			height:500px;
-			border:1px solid yellow;
-			background-color:white;
+			border:6px solid yellow;
 			margin:0px auto;
 			padding:20px;
+			background-image:url('/images/bg_form.jpg');
+			background-repeat:no-repeat;
+			background-size:cover;
 		}
 		#sub1{
 			width:55%;
 			height:400px;
-			border:1px solid red;
+			border:6px solid #faaca8;
 			float:left;
 			margin:10px;
 			padding:30px;
 			 background-image: linear-gradient(to right,#ddd6f3  ,	#faaca8); 
 		}
-		#sub2{
-			width:35%;
+		#mymap{
+			width:38%;
 			height:400px;
-			border:1px solid red;
+			border:6px solid #ddd6f3;
 			float:left;
 			margin:10px;
-		}
+		}	
 		
 	}
 	@media screen and (max-width: 899px) {
 		#sub{
 			width:70%;
-			border:1px solid yellow;
-			background-color:white;
+			border:6px solid yellow;
 			margin:0px auto;
 			padding:10px;
 			height:700px;
+			background-image:url('/images/bg_form.jpg');
+			background-repeat:no-repeat;
+			background-size:cover;
 		}
 		#sub1{
 			width:100%;
 			
-			border:1px solid red;
+			border:6px solid #faaca8;
 			margin:10px auto;
 			padding:30px;
 			 background-image: linear-gradient(to right,#ddd6f3  ,	#faaca8); 
 		}
-		#sub2{
+		#mymap{
 			width:100%;
-			height:200px;
-			border:1px solid red;
+			height:210px;
+			border:6px solid #ddd6f3;
 			float:left;
 			margin:10px auto;
 		}
@@ -170,7 +181,27 @@
 				 </div>
 				</form>
 		</div>
-		<div id="sub2">
+		<div id="mymap">
+			<script type="text/javascript">
+				var locations = <?php print_r(json_encode($venues)) ?>;
+				var mymap = new GMaps({
+				  el: '#mymap',
+				  lat: 15.29,
+				  lng: 73.96,
+				  zoom:6
+				});
+				$.each( locations, function( index, value ){
+					mymap.addMarker({
+					  lat: value.lat,
+					  lng: value.lng,
+					  title: value.venue_name,
+					  click: function(e) {
+						alert(value.venue_name);
+					  }
+					});
+					
+			   });
+			</script>
 		</div>
 	</div>
 
