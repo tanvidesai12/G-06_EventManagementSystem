@@ -19,6 +19,7 @@ use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\BillDetailsController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,6 +83,10 @@ Route::group(['middleware'=>['custAuth']],function(){
 	Route::get("view_booking_details",[ViewBookingsController::class,'showBookingDetails']);
 	Route::get("cancel_booking",[ViewBookingsController::class,'cancelBooking']);
 	Route::get('music',[MusicController::class,'showbands']);
+	Route::get('payment', [PaymentController::class, 'index'])->name('payment');
+	Route::post('payment-process', [PaymentController::class, 'paymentProcess']);
+	Route::get('payment-success', [PaymentController::class, 'paymentSuccess']);;
+	
 });
 Route::get("admin_feedback",[AdminFeedbackController::class,'viewfeedbacks']);
 Route::get("admin_contactus",[AdminContactController::class,'viewcontacts']);

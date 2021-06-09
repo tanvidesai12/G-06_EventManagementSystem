@@ -29,5 +29,13 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+'instamojo' => [
 
+    'api_key'       => env('IM_API_KEY'),
+
+    'auth_token'    => env('IM_AUTH_TOKEN'),
+
+    'url'           => env('IM_URL'),
+
+],
 ];
