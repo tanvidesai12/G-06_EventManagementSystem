@@ -94,8 +94,8 @@
 			<td> &#8377; {{ (($catering_total + $venue->price) * 0.5) }} </td>
 		</tr>
 		<tr>
-			<td style="font-weight: bold;">Payment status (Advanced):</td>
-			<td>Paid</td>
+			<td style="font-weight: bold;">Payment status (Advance):</td>
+			<td>{{ $pay_status }}</td>
 		</tr>
 	</tbody>
 </table>

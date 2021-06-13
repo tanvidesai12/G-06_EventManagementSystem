@@ -57,6 +57,8 @@ class PaymentController extends Controller
 
        // $input = $request->all();
 	    $payment=new Payment;
+		//$booking=new Booking();
+		//$booking=Booking::find($request->id);
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payments/'.$request->get('payment_id'));
@@ -94,7 +96,10 @@ class PaymentController extends Controller
 				$payment->advance= $data->payment->amount;
 				$payment->payment_status='Paid';
 				$payment->save();
-				
+				//	$booking->payment_id=$payment->id;
+				//$pay_id=$payment->id;
+				//$booking->payment_id=$pay_id;
+			//	$booking->save();
                 \Session::put('success','Your payment has been pay successfully, Enjoy!!');
                 return redirect('view_bookings');
 

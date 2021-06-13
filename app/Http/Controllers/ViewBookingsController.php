@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Booking;
 use App\Models\SelectedDish;
 use App\Models\Dish;
+use App\Models\Payment;
 use App\Models\event_detail;
 use App\Models\venue;
 use DateTime;
@@ -38,8 +39,10 @@ class ViewBookingsController extends Controller
 			})->sum('price');
         $booking=Booking::find($bId);
         $catering_total=$catering * $booking->no_of_guests;
+		$payment=Payment::find($bId);
+		$pay_status=$payment['payment_status'];
     	$venues= DB::table('venues')->join('bookings','venues.id',"=",'bookings.venue_id')->select('venues.venue_name','venues.address','venues.price')->where('bookings.id',$bId)->get();
-		return view('view_booking_details',['dishes'=>$dishes,'bId'=>$bId,'present'=>$present,'reviewPresent'=>$reviewPresent,'cancellation'=>$cancellation,'catering'=>$catering,'catering_total'=>$catering_total,'venues'=>$venues]);
+		return view('view_booking_details',['dishes'=>$dishes,'bId'=>$bId,'present'=>$present,'reviewPresent'=>$reviewPresent,'cancellation'=>$cancellation,'catering'=>$catering,'catering_total'=>$catering_total,'venues'=>$venues,'pay_status'=>$pay_status]);
     }
 	
     function cancelBooking(Request $req){
