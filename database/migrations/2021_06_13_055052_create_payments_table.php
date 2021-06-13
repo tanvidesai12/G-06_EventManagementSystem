@@ -19,6 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->string('email');
             $table->string('phone_no');
             $table->string('advance');
+			$table->string('payment_status')->default('Not Paid');
             $table->timestamps();
         });
     }

@@ -100,6 +100,6 @@
   <label for="checkbox"> I agree to these Terms and Conditions.</label>
 </div>
 <div class="buttn" style="margin:0px auto">
-	<a href="payment"><button class="btn btn-info" style="width:80%; margin: 20px;font-size:20px;">PAY NOW</button></a>
+	<a href="payment?id={{$bId}}"><button class="btn btn-info" style="width:80%; margin: 20px;font-size:20px;">PAY NOW</button></a>
 </div>
 @endsection

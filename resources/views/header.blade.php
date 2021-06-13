@@ -4,7 +4,7 @@
 
 			background-color: #25003e /*#00CED1*/;
 			opacity: 0.8;			
-		
+			z-index: 10;
 	}
 .nav-link{
 		color: black;

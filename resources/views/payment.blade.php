@@ -26,11 +26,11 @@
 		  
 		   <div class="form-group ">
 			<label for="advance">Advance Amount</label>
-			<input type="text" name="advance" class="form-control" id="advance" >
+			<input type="text" name="advance" class="form-control" id="advance" placeholder="{{$adv_amount}}" value="{{$adv_amount}}">
 		  </div>
 		  <span class="errorMsgs" style="color: red">@error('advance'){{$message}}@enderror</span>
 		  
-		 <center> <button type="submit" class="aa-browse-btn" id="btnPlceOrder">Pay via Insatamojo </button></center>
+		 <center> <button type="submit" class="btn-info aa-browse-btn" id="btnPlceOrder">Pay via Insatamojo </button></center>
 			  
 			  </form>
 		  </div>

@@ -10,11 +10,16 @@ use App\Models\venue;
 use Illuminate\Http\Request;
 
 
+
 class PaymentController extends Controller
 {
-   public function index()
+   public function index(Request $req)
     {
-        return view('payment');
+	 $bId=$req->id;
+	 $booking=Booking::find($bId);
+	 $tot_cost=$booking['total_amount'];
+	 $adv_amount=$tot_cost*0.5;
+	 return view('payment',['adv_amount'=>$adv_amount]);
     }
     public function paymentProcess(Request $request){
  
@@ -50,8 +55,8 @@ class PaymentController extends Controller
  
     public function paymentSuccess(Request $request){
 
-        $input = $request->all();
-
+       // $input = $request->all();
+	    $payment=new Payment;
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payments/'.$request->get('payment_id'));
@@ -77,12 +82,19 @@ class PaymentController extends Controller
             if($data->payment->status == 'Credit') {
                 
                 // Here Your Database Insert Login
-                $input['name'] = $data->payment->buyer_name;
-                $input['email'] = $data->payment->buyer_email;
-                $input['phone_no'] = $data->payment->buyer_phone;
-                $input['advance'] = $data->payment->amount;
-                Payment::create($input);
-
+                //$input['name'] = $data->payment->buyer_name;
+                //$input['email'] = $data->payment->buyer_email;
+                //$input['phone_no'] = $data->payment->buyer_phone;
+                //$input['advance'] = $data->payment->amount;
+                //Payment::create($input);
+				
+				$payment->name=$data->payment->buyer_name;
+				$payment->email=$data->payment->buyer_email;
+				$payment->phone_no=$data->payment->buyer_phone;
+				$payment->advance= $data->payment->amount;
+				$payment->payment_status='Paid';
+				$payment->save();
+				
                 \Session::put('success','Your payment has been pay successfully, Enjoy!!');
                 return redirect('view_bookings');
 
@@ -94,11 +106,3 @@ class PaymentController extends Controller
     }
 }
 	
-
-
-
-
-
-
-
-
