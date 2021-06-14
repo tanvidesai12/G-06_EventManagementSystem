@@ -14,7 +14,7 @@
 	<div class="jumbotron m-5">
 	  <h3 class="text-center">There are no reviews yet!</h3>
 	</div>
-@else if
+@else
 	@foreach($reviews as $key => $rev)
 	<div class="shadow p-3 mb-5 rounded rev">
 		<div class="d-inline-block"><span class="font-weight-bold"> Name:</span> {{ $events[$key]->fullname }} </div>

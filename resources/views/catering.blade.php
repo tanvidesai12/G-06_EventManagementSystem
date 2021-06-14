@@ -1,14 +1,16 @@
 @extends('master')
 @section('contents')
 @if($errors->any())
-<div class="alert alert-danger" >{{ $errors->first() }}</div>
+	<div class="alert alert-danger m-0" >
+		{{ $errors->first() }}
+	</div>
 @endif
 @if(session('venue'))
-    <div class="alert alert-success">
+    <div class="alert alert-success m-0">
         {{ session('venue') }}
     </div>
 @endif
-<div class="contents">
+<div class="contents" style="margin:0px;">
 	<img src="images/cateringBackground.jpg" width="100%" height="600px"/>
 	<h1 class="text">Swaad Caterers</h1>
 	<div class="design">~o~</div>

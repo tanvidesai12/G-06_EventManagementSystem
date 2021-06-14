@@ -100,12 +100,10 @@ class PaymentController extends Controller
 				//$pay_id=$payment->id;
 				//$booking->payment_id=$pay_id;
 			//	$booking->save();
-                \Session::put('success','Your payment has been pay successfully, Enjoy!!');
-                return redirect('view_bookings');
+                return redirect('view_bookings')->with('message','Your payment has been pay successfully, Enjoy!!');
 
             } else {
-                \Session::put('error','Payment Failed, Try Again!!');
-                return redirect()->route('payment');
+                return redirect()->route('payment')->withErrors('Payment Failed, Try Again!!');
             }
         }
     }

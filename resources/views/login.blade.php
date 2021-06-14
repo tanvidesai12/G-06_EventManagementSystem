@@ -3,7 +3,11 @@
 <div class="div1">
 @if($errors->any())
 	<div class="alert alert-danger">
-	        {{ $errors->first() }}
+	    <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
 	</div>
 @endif
 @if (session('message'))

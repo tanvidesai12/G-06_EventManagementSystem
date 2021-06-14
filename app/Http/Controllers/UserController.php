@@ -12,13 +12,13 @@ class UserController extends Controller
 		$validated = $req->validate([
         'name' => 'required|min:3',
         'email' => 'required|unique:users,email',
-        'ph_num'=>'required|size:10',
+        'phone_number'=>'required|digits:10',
         'password'=>'required|min:5'
     	]);
 		$user=new User;
 		$user->name=$req->name;
 		$user->email=$req->email;
-		$user->ph_num=$req->ph_num;
+		$user->ph_num=$req->phone_number;
 		$password=$req->password;
 		$user->password = Hash::make($password);
 		$saved=$user->save();
@@ -49,7 +49,7 @@ class UserController extends Controller
 			
 		}
 		else{
-			return back()->withErrors('Username or password is not matched.');
+			return back()->withErrors('Password is not matched.');
 		}
 	}
 }

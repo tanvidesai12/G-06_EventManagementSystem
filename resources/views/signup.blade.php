@@ -1,11 +1,6 @@
 @extends('master')
 @section('contents')
 <div class="div1">
-@if($errors->any())
-	<div class="alert alert-danger">
-	        {{ $errors->first() }}
-	</div>
-@endif
 <div class="divStyle">
 <h2 class="h2Style">Sign Up</h2>
 
@@ -23,9 +18,9 @@
 <span class="errorMsgs">@error('email'){{$message}}@enderror</span>
 <div class="input-container">
 	<i class="fa fa-phone icon"></i>
-	<input type="text" id="ph_num" class="input-field" name="ph_num" placeholder="Phone Number">
+	<input type="text" id="phone_number" class="input-field" name="phone_number" placeholder="Phone Number">
 </div>
-<span class="errorMsgs">@error('ph_num'){{$message}}@enderror</span>
+<span class="errorMsgs">@error('phone_number'){{$message}}@enderror</span>
 <div class="input-container">
 	<i class="fa fa-key icon"></i>
 	<input type="password" id="password" class="input-field" name="password" placeholder="Password">

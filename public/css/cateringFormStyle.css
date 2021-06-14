@@ -74,13 +74,7 @@ h3.h3Style {
 	font-weight: bold;
 	margin-top: 0px;
 }
-.subPackages {
-	display: inline-block;
-	border: 1px solid lightgrey;
-	border-radius: 5px;
-	width: 30%;
-	margin-top: 10px;
-}
+
 .bg {
 	background-color: #E0E0E0;
 	margin-top: 0px;	
@@ -94,4 +88,31 @@ h3.h3Style {
 	margin: 0px auto;
 	width: 15%;
 	text-align: left;
+}
+@media only screen and (max-width: 600px) {
+	.subPackages {
+		display: inline-block;
+		border: 1px solid lightgrey;
+		border-radius: 5px;
+		width: 100%;
+		margin-top: 10px;
+	}
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+	.subPackages {
+		display: inline-block;
+		border: 1px solid lightgrey;
+		border-radius: 5px;
+		width: 40%;
+		margin-top: 10px;
+	}
+}
+@media only screen and (min-width: 993px) {
+	.subPackages {
+		display: inline-block;
+		border: 1px solid lightgrey;
+		border-radius: 5px;
+		width: 30%;
+		margin-top: 10px;
+	}
 }

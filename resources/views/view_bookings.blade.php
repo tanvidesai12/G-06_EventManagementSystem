@@ -12,12 +12,17 @@
 		text-indent: 25px;
 	}
 </style>
-<h2 class="text-center" style="text-shadow: 2px 2px;">My Bookings</h2>
-@if ($bookings->isEmpty())
+@if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+<h2 class="text-center m-3" style="text-shadow: 2px 2px;">My Bookings</h2>
+@if($bookings->isEmpty())
 	<div class="jumbotron" style="margin: 5%;">
 	  <h3 class="text-center">You haven't made any bookings yet!</h3>
 	</div>
-@else if
+@else
 	@foreach($bookings as  $key => $booking)
 	<a href="view_booking_details?bkgId={{ $booking['id'] }}">
 		<div class="shadow p-3 mb-5 rounded rev">

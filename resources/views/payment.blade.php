@@ -1,6 +1,11 @@
 @extends('contact')
 @section("content")
 <div class="container contact">
+	@if($errors->any())
+		<div class="alert alert-danger">
+		        {{ $errors->first() }}
+		</div>
+	@endif
 	<div class="row">
 		<div class="col-md-9">
 		<form action="{{ url('payment-process') }}" method="POST" name="laravel_instamojo">

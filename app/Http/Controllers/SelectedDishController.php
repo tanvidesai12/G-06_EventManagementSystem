@@ -22,7 +22,7 @@ class SelectedDishController extends Controller
     		$booking=Booking::find($bkgId);
     		$booking->dishes()->attach($dish_list);
 		}  
-		return redirect('bill_details?bkgId='.$bkgId)->with('status', 'Dishes Added successfully!');
+		return redirect('bill_details?bkgId='.$bkgId)->with('status', 'Dishes saved successfully!');
     }
     function addPackage(Request $req){
     	$bkgId=$req->bkgId;
@@ -55,6 +55,6 @@ class SelectedDishController extends Controller
 	    		$booking->dishes()->attach($nonVegDishes);
 	    	}
     	}
-    	return redirect('bill_details?bkgId='.$bkgId)->with('status', 'Dishes Added successfully!');
+    	return redirect('bill_details?bkgId='.$bkgId)->with('status', 'Dishes saved successfully!');
     }
 }
