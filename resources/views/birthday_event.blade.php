@@ -2,108 +2,24 @@
 @section("contents")
 <head>
 	<style>
-		#info{		
-			width:100%;
-			height:500px;
-			text-align:center;
-
-		}
+		
 		#heading{
-			margin:-250px 40%;
+			margin:-280px auto;
 			font-size:60px;
 			font-weight:bold;
-			color:	maroon;
-		}
-		#sub_con{
-			
-			width:100%;
-			padding:30px;
-			margin-top:10px;
-		}
-		#photos{
-			width:100%;	
-			background-color:#343434;
-			margin:10px auto;
-			padding:10px;
-		}
-		
-		.card-deck{
-			margin:20px;
-		
-		}
-		.card-img-top{
-			height:310px;
-		}
-		
-		p{
-			text-align:justify;
-			
-			font-size:18px;
-		/*	 text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;*/
-			text-shadow:0 0 0 #f00, 0 0 1px transparent;
-		}
-		.card{
-		
-			background: #fff;
-			box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-			  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-
-		}
-
-		.card:hover{
-			 transform: scale(1.05);
-			box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-		}
-		.sub_div1{
-			
-			float:left;
-			width:50%;
-			padding:10px;
-		
 			
 		}
-		.sub_div2{
-			
-			padding:10px;
-		
-			
-		
-		}
-		@media (min-width: 1020px)  {
-			div#info {
-			  display: block;
-			}
-			div.sub_div1{
-				width:50%;
-			}
-			
-		}
-		
-		@media (max-width: 1019px) and (min-width: 601) {
-				div#info {
-				  display: block;
-				}
-				
-
-		 }
-		 @media screen and (max-width:600px){
-			 div#info {
-				  display: none;
-				}
-				div.sub_div1{
-				min-width:100%;
-				
-			}
-			
-
-		 }
-		
-		
+		.divstyle{
+		position:relative;
+		opacity:0.4;
+		width:30%;
+		margin:0px auto;
+	}
 </style>
 </head>
 <div id="info">
 	<img src="/images/bir2.jpg" class=" w-100" alt="..." style="height:500px;">
-	<h2 id="heading">BITHDAYS</h2>
+	<div class="shadow mb-5 bg-white rounded divstyle"><h2 id="heading" style="color:#CD5C5C;">BIRTHDAYS</h2></div>
 </div>
 <div id="sub_con">
 	<p>

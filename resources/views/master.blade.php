@@ -16,6 +16,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 	{{View::make('footer')}}
 	
+	<link rel="stylesheet" type="text/css" href="css/index_page.css">
+	<link rel="stylesheet" type="text/css" href="css/events.css">
 	<link rel="stylesheet" type="text/css" href="css/formStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/cateringFormStyle.css">
 </body>

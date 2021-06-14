@@ -63,7 +63,11 @@
 				</div>
 				<div class="form-group datetimepicker col-sm-12  col-md-6">
 					<label for="date" class="form-label">Date:</label>
-					<input type="date" class="form-control " id="date" name="event_date" autocomplete="off" required>
+					<?php 
+						$time=time();
+						$time=$time+15*(24*3600);
+					?>
+					<input type="date" class="form-control " id="date" name="event_date" min="<?= date("Y-m-d",$time)?>"  required>
 				</div>
 				<div class="form-group col-sm-12 col-md-6">
 					<label for="time" class="form-label">Time:</label>
