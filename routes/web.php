@@ -20,6 +20,7 @@ use App\Http\Controllers\BillDetailsController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\AdminViewBookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,3 +95,4 @@ Route::get('forget-password', [ForgotPasswordController::class,'getEmail']);
 Route::post('forget-password', [ForgotPasswordController::class,'postEmail']);
 Route::get('reset-password/{token}', [ResetPasswordController::class,'getPassword']);
 Route::post('/reset-password', [ResetPasswordController::class,'updatePassword']);
+Route::get('admin_main',[AdminViewBookingController::class,'display']);
