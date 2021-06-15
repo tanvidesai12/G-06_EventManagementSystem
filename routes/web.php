@@ -67,7 +67,8 @@ Route::group(['middleware'=>['adminAuth']],function(){
 
 	Route::get('removeVenue',[RemoveVenueController::class,'show']);
 	Route::post("removeVenue",[RemoveVenueController::class,'remove']);
-	
+	Route::get("confirm_bkg",[AdminViewBookingController::class,'confirmBooking']);
+	Route::get("reject_bkg",[AdminViewBookingController::class,'rejectBooking']);
 });
 Route::group(['middleware'=>['custAuth']],function(){
 	Route::view("booking_details",'booking_details');

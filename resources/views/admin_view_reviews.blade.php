@@ -9,7 +9,7 @@
 		margin-top: 20px;
 	}
 </style>
-<h2 class="text-center" style="text-shadow: 2px 2px;">Reviews</h2>
+<h2 class="text-center m-3" style="text-shadow: 2px 2px;">Reviews</h2>
 @if($reviews==null)
 	<div class="jumbotron m-5">
 	  <h3 class="text-center">There are no reviews yet!</h3>

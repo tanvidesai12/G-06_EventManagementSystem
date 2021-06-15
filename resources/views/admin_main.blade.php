@@ -41,6 +41,12 @@
 	<div class="d-inline-block pstyle"><span class="font-weight-bold"> Event Date:</span> {{ $row->event_date }} </div>
 	<div class="d-inline-block pstyle"><span class="font-weight-bold"> Event Time:</span> {{ $row->event_time }} </div>
 	<div class="d-inline-block pstyle"><span class="font-weight-bold"> Venue:</span> {{ $row->venue_name }} </div>
+	@if($row->booking_status!='Cancelled' && $row->booking_status!='Confirmed' && $row->booking_status!='Rejected')
+	<div class="text-center m-3">
+		<a href="confirm_bkg?bkgId={{ $row->id }}" class="btn btn-secondary d-inline-block m-4">Confirm Booking</a>
+		<a href="reject_bkg?bkgId={{ $row->id }}" class="btn btn-secondary d-inline-block m-4">Reject booking</a>
+	</div>
+	@endif
 </div>
 <center><div class="deco">~~O~~</div></center>
 @endforeach
