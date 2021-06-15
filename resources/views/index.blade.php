@@ -31,40 +31,118 @@
 		 transform: scale(1.05);
 		box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 	}
-	.events{
-		width:29%;
-		height:200px;
-		margin:-350px auto;
+@media screen and (min-width:701px){
+		.events{
+			width:42%;
+			height:200px;
+			margin:-350px auto;
+		
+		}
+		
+		.heading{
+			margin:0px auto;
+			font-size:50px;
+			text-align:center;
+			
+		
+		}
+		#view_but1{
+			margin:25px 42%;
+			background-color:#25003e;/*tomato*/
+			color:white;
+			opacity:0.9;
+			width:120px;
+			font-size:18px;
+			border-radius:15px;
+			
+		}
+		.view_but2{
+			margin:25px 42%;
+			background-color:darkorange;/*#25003e;*/
+			color:white;
+			width:120px;
+			font-size:18px;
+			border-radius:15px;
+			
+		}
+		
+		
+		
+	}
+	@media screen and (max-width: 700px) and (min-width:480px){
+		.events{
+			width:62%;
+			height:200px;
+			margin:-350px auto;
+		
+		}
+		
+		.heading{
+			margin:0px auto;
+			font-size:50px;
+			text-align:center;
+			
+		
+		}
+		#view_but1{
+			margin:25px 35%;
+			background-color:#25003e;/*tomato*/
+			color:white;
+			opacity:0.9;
+			width:120px;
+			font-size:18px;
+			border-radius:15px;
+			
+		}
+		.view_but2{
+			margin:25px 35%;
+			background-color:darkorange;/*#25003e;*/
+			color:white;
+			width:120px;
+			font-size:18px;
+			border-radius:15px;
+			
+		}
+		
+	}
 
+
+	@media screen and (max-width:479px){
+		.events{
+			width:85%;
+			height:200px;
+			margin:-350px auto;
 		
+		}
+		
+		.heading{
+			margin:0px auto;
+			font-size:35px;
+			text-align:center;
+			
+		
+		}
+		#view_but1{
+			margin:25px 28%;
+			background-color:#25003e;/*tomato*/
+			color:white;
+			opacity:0.9;
+			width:120px;
+			font-size:18px;
+			border-radius:15px;
+			
+		}
+		.view_but2{
+			margin:25px 28%;
+			background-color:darkorange;/*#25003e;*/
+			color:white;
+			width:120px;
+			font-size:18px;
+			border-radius:15px;
+			
+		}
 	}
-	.heading{
-		margin:0px auto;
-		font-size:65px;
-		text-align:center;
-		
 	
-	}
-	
-	#view_but1{
-		margin:25px 30%;
-		background-color:#25003e;/*tomato*/
-		color:white;
-		opacity:0.9;
-		width:150px;
-		font-size:22px;
-		border-radius:15px;
-		
-	}
-	.view_but2{
-		margin:25px 30%;
-		background-color:darkorange;/*#25003e;*/
-		color:white;
-		width:150px;
-		font-size:22px;
-		border-radius:15px;
-		
-	}
 	#gallery h2{
 		background-image: linear-gradient(#9932CC,	#DDA0DD);
 		color:white;

@@ -80,7 +80,7 @@ class PaymentController extends Controller
             $payment->advance= $data->payment->amount;
             $payment->payment_status='Failed';
             $payment->save();
-            return redirect()->route('payment')->withErrors('Payment Failed, Try Again!!');
+			return redirect('payment')->withErrors('Payment Failed, Try Again!!');
         } else {
             $data = json_decode($response);
         }
@@ -100,21 +100,24 @@ class PaymentController extends Controller
 				$payment->phone_no=$data->payment->buyer_phone;
 				$payment->advance= $data->payment->amount;
 				$payment->payment_status='Paid';
-				$payment->save();
+				$saved=$payment->save();
+				if(!$saved){
+					return redirect('view_bookings')->withErrors('Payment unsuccessfull!!');
+				}
+				else{
+					
+					return redirect('view_bookings')->with('message','Your payment has been pay successfully, Enjoy!!');
+				}		
 				//	$booking->payment_id=$payment->id;
 				//$pay_id=$payment->id;
 				//$booking->payment_id=$pay_id;
 			//	$booking->save();
-                return redirect('view_bookings')->with('message','Your payment has been pay successfully, Enjoy!!');
+                
 
-            } else {
-                $payment->name=$data->payment->buyer_name;
-                $payment->email=$data->payment->buyer_email;
-                $payment->phone_no=$data->payment->buyer_phone;
-                $payment->advance= $data->payment->amount;
-                $payment->payment_status='Failed';
-                $payment->save();
-                return redirect()->route('payment')->withErrors('Payment Failed, Try Again!!');
+            }
+					else {
+                
+                return redirect('payment')->withErrors('Payment Failed, Try Again!!');
             }
         }
     }

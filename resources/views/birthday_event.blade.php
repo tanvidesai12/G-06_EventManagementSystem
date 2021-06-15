@@ -2,7 +2,7 @@
 @section("contents")
 <head>
 	<style>
-			#info{		
+		#info{		
 			width:100%;
 			height:500px;
 			text-align:center;
@@ -14,95 +14,100 @@
 			font-weight:bold;
 			
 		}
-		.divstyle{
-		position:relative;
-		opacity:0.9;
-		width:30%;
-		margin:0px auto;
-	}
-	#sub_con{
-			
-			width:100%;
-			padding:30px;
-			margin-top:10px;
-		}
-	#photos{
-			width:100%;	
-			background-color:#343434;
-			margin:10px auto;
-			padding:10px;
-		}
 		
-	.card-deck{
-			margin:20px;
-		
-		}
-	.card-img-top{
-			height:310px;
-		}
-	p{
-			text-align:justify;
-			
-			font-size:18px;
-		/*	 text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;*/
-			text-shadow:0 0 0 #f00, 0 0 1px transparent;
-		}
-	.card{
-		
-			background: #fff;
-			box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-			  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-
-		}
-
-	.card:hover{
-			 transform: scale(1.05);
-			box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-		}
-	.sub_div1{
-			
-			float:left;
-			width:50%;
-			padding:10px;
-		
-			
-		}
-	.sub_div2{
-			
-			padding:10px;
-		
-			
-		
-		}	
-	@media (min-width: 1020px)  {
-			div#info {
-			  display: block;
+		#sub_con{
+				
+				width:100%;
+				padding:30px;
+				margin-top:10px;
 			}
-			div.sub_div1{
+		#photos{
+				width:100%;	
+				background-color:#343434;
+				margin:10px auto;
+				padding:10px;
+			}
+			
+		.card-deck{
+				margin:20px;
+			
+			}
+		.card-img-top{
+				height:310px;
+			}
+		p{
+				text-align:justify;
+				
+				font-size:18px;
+			/*	 text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;*/
+				text-shadow:0 0 0 #f00, 0 0 1px transparent;
+			}
+		.card{
+			
+				background: #fff;
+				box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+				  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+
+			}
+
+		.card:hover{
+				 transform: scale(1.05);
+				box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+			}
+		.sub_div1{
+				
+				float:left;
 				width:50%;
-			}
+				padding:10px;
 			
-		}
-		
-	@media (max-width: 1019px) and (min-width: 601) {
+				
+			}
+		.sub_div2{
+				
+				padding:10px;
+			
+				
+			
+			}	
+	@media (min-width: 801px)  {
 				div#info {
 				  display: block;
 				}
-				
-
-		 }
-	 @media screen and (max-width:600px){
-			 div#info {
-				  display: none;
-				}
 				div.sub_div1{
-				min-width:100%;
-				
+					width:50%;
+				}
+				.divstyle{
+					position:relative;
+					opacity:0.9;
+					width:45%;
+					margin:0px auto;
+					}
 			}
 			
+		@media (max-width: 800px) and (min-width: 601px) {
+					div#info {
+					  display: block;
+					}
+					.divstyle{
+					position:relative;
+					opacity:0.9;
+					width:60%;
+					margin:0px auto;
+					}
+					
 
-		 }
-		
+			 }
+		 @media screen and (max-width:600px){
+				 div#info {
+					  display: none;
+					}
+					div.sub_div1{
+					min-width:100%;
+					
+				}
+				
+
+			 }
 </style>
 </head>
 <div id="info">

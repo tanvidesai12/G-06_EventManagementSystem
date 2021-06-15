@@ -17,6 +17,11 @@
         {{ session('message') }}
     </div>
 @endif
+@if($errors->any())
+		<div class="alert alert-danger">
+		        {{ $errors->first() }}
+		</div>
+@endif
 <h2 class="text-center m-3" style="text-shadow: 2px 2px;">My Bookings</h2>
 @if($data->isEmpty())
 	<div class="jumbotron" style="margin: 5%;">
