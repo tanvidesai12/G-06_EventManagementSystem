@@ -33,7 +33,7 @@
 @foreach($data as $row)
 <div class="shadow p-3 mb-5 rounded feed">
 <!--<img src="/images/2.jpg" alt="..." style="height:60px;">-->
-	<div class="d-inline-block pstyle"><span class="font-weight-bold"> Name:</span> {{ $row->name }} </div>
+	<div class="d-inline-block pstyle"><span class="font-weight-bold"> Name:</span> {{ $row->fullname }} </div>
 	<div class="d-inline-block pstyle"><span class="font-weight-bold"> No Of Guest:</span> {{ $row->no_of_guests }} </div>
 	<div class="d-inline-block pstyle"><span class="font-weight-bold"> Booking Status:</span> {{ $row->booking_status }} </div>
 	<div class="d-inline-block pstyle"><span class="font-weight-bold"> Total Amount:</span> {{ $row->total_amount }} </div>
