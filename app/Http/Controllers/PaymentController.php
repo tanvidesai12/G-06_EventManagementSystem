@@ -74,8 +74,13 @@ class PaymentController extends Controller
         curl_close($ch); 
 
         if ($err) {
-            \Session::put('error','Payment Failed, Try Again!!');
-            return redirect()->route('payment');
+            $payment->name=$data->payment->buyer_name;
+            $payment->email=$data->payment->buyer_email;
+            $payment->phone_no=$data->payment->buyer_phone;
+            $payment->advance= $data->payment->amount;
+            $payment->payment_status='Failed';
+            $payment->save();
+            return redirect()->route('payment')->withErrors('Payment Failed, Try Again!!');
         } else {
             $data = json_decode($response);
         }
@@ -103,6 +108,12 @@ class PaymentController extends Controller
                 return redirect('view_bookings')->with('message','Your payment has been pay successfully, Enjoy!!');
 
             } else {
+                $payment->name=$data->payment->buyer_name;
+                $payment->email=$data->payment->buyer_email;
+                $payment->phone_no=$data->payment->buyer_phone;
+                $payment->advance= $data->payment->amount;
+                $payment->payment_status='Failed';
+                $payment->save();
                 return redirect()->route('payment')->withErrors('Payment Failed, Try Again!!');
             }
         }

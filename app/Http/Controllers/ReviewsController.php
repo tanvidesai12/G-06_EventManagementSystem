@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Review;
 use App\Models\event_detail;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 class ReviewsController extends Controller
 {
@@ -35,26 +36,24 @@ class ReviewsController extends Controller
     	}
     }
     function viewReviews(){
-    	$revs=Review::limit(5)->get();
     	$id=1;
     	$cnt=0;
-    	$revs=$revs->toArray();
-    	$result = array_column($revs, 'booking_id');
-    	
-    	$events=event_detail::whereIn('id', function($query) use ($result) {
-			    $query->select('event_id')->from('bookings')->whereIn('id',$result);
-			})->get();
-    	return view('index',['revs'=>$revs,'id'=>$id,'events'=>$events,'cnt'=>$cnt]);
+        $data=DB::table('bookings')
+            ->join('event_details', 'bookings.event_id', '=', 'event_details.id')
+            ->join('reviews', 'bookings.id', '=', 'reviews.booking_id')
+            ->select('event_details.*','reviews.*')
+            ->limit(5)
+            ->get();
+    	return view('index',['data'=>$data,'id'=>$id,'cnt'=>$cnt]);
 
     }
   	function viewReviewsAdmin(){
-  		$reviews=Review::all();
-  		$reviews=$reviews->toArray();
-    	$result = array_column($reviews, 'booking_id');
+  		$reviews=DB::table('bookings')
+            ->join('event_details', 'bookings.event_id', '=', 'event_details.id')
+            ->join('reviews', 'bookings.id', '=', 'reviews.booking_id')
+            ->select('event_details.*','reviews.*')
+            ->get();
     	
-    	$events=event_detail::whereIn('id', function($query) use ($result) {
-			    $query->select('event_id')->from('bookings')->whereIn('id',$result);
-			})->get();
-  		return view('admin_view_reviews',['reviews'=>$reviews,'events'=>$events]);
+  		return view('admin_view_reviews',['reviews'=>$reviews]);
   	}
 }

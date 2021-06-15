@@ -15,13 +15,18 @@ class ViewBookingsController extends Controller
 {
     function showBookings(){
         $user_id=session()->get('user.id');
-    	$bookings=Booking::where('user_id',$user_id)->get();
+        $data = DB::table('bookings')
+            ->where('user_id', '=',$user_id)
+            ->join('event_details', 'bookings.event_id', '=', 'event_details.id')
+            ->select('bookings.id','event_details.fullname', 'event_details.event_type', 'event_details.event_date','event_details.event_time','bookings.booking_status','bookings.no_of_guests')
+            ->get();
+    	/*$bookings=Booking::where('user_id',$user_id)->get();
         $bkgs=$bookings->toArray();
         $result = array_column($bkgs, 'id');        
         $events=event_detail::whereIn('id', function($query) use ($result) {
                 $query->select('event_id')->from('bookings')->whereIn('id',$result);
-            })->get();
-    	return view('view_bookings',['bookings'=>$bookings,'events'=>$events]);
+            })->get();*/
+    	return view('view_bookings',['data'=>$data]);
     }
 	
     function showBookingDetails(Request $req){
