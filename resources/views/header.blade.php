@@ -35,6 +35,9 @@
       <li class="nav-item">
         <a class="nav-link" href="view_bookings" >VIEW BOOKINGS</a>
       </li>
+	  
+	  
+      @endif
 	  <li class="nav-item">
        <div class="dropdown">
   <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,8 +49,6 @@
   </div>
 </div>
       </li>
-	  
-      @endif
 	  <li class="nav-item">
         <a class="nav-link" href="contact_us" >CONTACT US</a>
       </li>

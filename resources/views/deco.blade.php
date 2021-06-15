@@ -1,6 +1,7 @@
 @extends('master')
 @section("contents")
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 
 	
@@ -32,35 +33,7 @@
 			 transform: scale(1.05);
 			box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 		}
-		
-		@media (min-width: 1020px)  {
-			div#info {
-			  display: block;
-			}
-			div.sub_div1{
-				width:50%;
-			}
-			
-		}
-		
-		@media (max-width: 1019px) and (min-width: 601) {
-				div#info {
-				  display: block;
-				}
-				
 
-		 }
-		 @media screen and (max-width:600px){
-			 div#info {
-				  display: none;
-				}
-				div.sub_div1{
-				min-width:100%;
-				
-			}
-			
-
-		 }
 		 .ba{
     margin: 0px;
     padding: 0px;
@@ -105,6 +78,10 @@
 .space{
 		padding:15px;
 	}
+	@media screen and (max-width: 800px) {
+  .ba {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
 
 			
 </style>
