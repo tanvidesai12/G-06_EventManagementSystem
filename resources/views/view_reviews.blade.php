@@ -11,7 +11,7 @@
 </style>
 <div id="demo" class="carousel slide" data-ride="carousel"  style="width: 85%;height: 350px; margin: 20px auto;">
   <ul class="carousel-indicators">
-    @foreach($revs as $rev)
+    @foreach($data as $dt)
       @if($cnt==0)
       <li data-target="#demo" data-slide-to="{{ $cnt++ }}" class="active"></li>
       @else
@@ -20,7 +20,7 @@
     @endforeach
   </ul>
   <div class="carousel-inner">
-    @foreach($revs as $key => $rev)
+    @foreach($data as $dt)
       @if($id==1)
         <div class="carousel-item active" id="{{ $id++ }}">
       @else
@@ -29,9 +29,9 @@
       <img src="images/reviews_bg.jpg" alt="Review1" width="700" height="100">
       <h4 class="carousel-caption captionHeader font-italic">What People Say About Us</h4>
       <div class="carousel-caption">
-        <blockquote class="blockquote">"{{ $rev['review'] }}"</blockquote>
-        <h5><span class="badge badge-warning">{{ $events[$key]->event_type }}</span></h5>
-        <p>-{{ $events[$key]->fullname }}</p>
+        <blockquote class="blockquote">"{{ $dt->review }}"</blockquote>
+        <h5><span class="badge badge-warning">{{ $dt->event_type }}</span></h5>
+        <p>-{{ $dt->fullname }}</p>
       </div>   
     </div>
     @endforeach

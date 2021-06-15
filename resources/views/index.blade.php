@@ -162,7 +162,7 @@
   </div>
 </div>
 </div>
-@if($revs!=null)
-@include('view_reviews',['revs'=>$revs,'id'=>$id,'events'=>$events])
+@if($data!=null)
+@include('view_reviews',['data'=>$data,'id'=>$id])
 @endif
 @endsection
