@@ -162,7 +162,7 @@
   </div>
 </div>
 </div>
-@if($data!=null)
+@if($data->isNotEmpty())
 @include('view_reviews',['data'=>$data,'id'=>$id])
 @endif
 @endsection

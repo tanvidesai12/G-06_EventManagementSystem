@@ -2,30 +2,8 @@
 @section("contents")
 <head>
 	<style>
-		#info{		
-			width:100%;
-			height:500px;
-			text-align:center;
 
-		}
-		#heading{
-			margin:-250px 40%;
-			font-size:60px;
-			font-weight:bold;
-			color:	maroon;
-		}
-		#sub_con{
-			
-			width:100%;
-			padding:30px;
-			margin-top:10px;
-		}
-		#photos{
-			width:100%;	
-			background-color:#343434;
-			margin:10px auto;
-			padding:10px;
-		}
+	
 		
 		.card-deck{
 			margin:20px;
@@ -54,21 +32,7 @@
 			 transform: scale(1.05);
 			box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 		}
-		.sub_div1{
-			
-			float:left;
-			width:50%;
-			padding:10px;
 		
-			
-		}
-		.sub_div2{
-			
-			padding:10px;
-		
-			
-		
-		}
 		@media (min-width: 1020px)  {
 			div#info {
 			  display: block;

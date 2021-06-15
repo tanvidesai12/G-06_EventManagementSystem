@@ -62,16 +62,16 @@
 		<h6>Patto Centre, Panaji, Goa 403001</h6></p>
 		<div class="iconn">
 		<a class="iconss" href="">
-		<i class="fab fa-2x fa-facebook-f"></i>
+		<i class="fa fa-2x fa-facebook"></i>
 		</a>
 		<a class="iconss" href="#">
-		<i class="fab fa-2x fa-twitter"></i>
+		<i class="fa fa-2x fa-twitter"></i>
 		</a>
 		<a class="iconss" href="#">
-		<i class="fab fa-2x fa-instagram"></i>
+		<i class="fa fa-2x fa-instagram"></i>
 		</a>
 		<a class="iconss" href="#">
-		<i class="fab fa-2x fa-whatsapp"></i>
+		<i class="fa fa-2x fa-whatsapp"></i>
 		</a>
 		</div>
     </div>
