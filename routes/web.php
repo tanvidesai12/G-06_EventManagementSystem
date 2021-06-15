@@ -44,6 +44,8 @@ Route::view("about","about");
 Route::view("wedding_event",'wedding_event');
 Route::view("corporate_event",'corporate_event');
 Route::view("birthday_event",'birthday_event');
+Route::get('music',[MusicController::class,'showbands']);
+Route::view("deco","deco");
 Route::get('/login',function(){
 	if(session()->has('user')){
 		return redirect('/');
@@ -84,8 +86,7 @@ Route::group(['middleware'=>['custAuth']],function(){
 	Route::get("view_bookings",[ViewBookingsController::class,'showBookings']);
 	Route::get("view_booking_details",[ViewBookingsController::class,'showBookingDetails']);
 	Route::get("cancel_booking",[ViewBookingsController::class,'cancelBooking']);
-	Route::get('music',[MusicController::class,'showbands']);
-	Route::view("deco","deco");
+	
 	Route::get('payment', [PaymentController::class, 'index'])->name('payment');
 	Route::post('payment-process', [PaymentController::class, 'paymentProcess']);
 	Route::get('payment-success', [PaymentController::class, 'paymentSuccess']);;
