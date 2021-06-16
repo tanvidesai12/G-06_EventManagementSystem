@@ -94,9 +94,9 @@
 </div>
 <div class="info">
   <p><strong>&nbspTerms and Condition!!</strong><br>&nbsp To confirm booking advance payment needs to be done.<br>
-  &nbsp No refund of advance payment if booking is cancelled.<br>
+  &nbsp No refund of advance payment if booking is cancelled by you.<br>
   &nbsp For decoration and Music bookings you need to contact us.<br>
-  &nbsp If your booking gets rejected, your money will be refunded back to you.</p>
+  &nbsp If your booking gets rejected due to non availabilty of venues and our any other services, your money will be refunded back to you.</p>
   &nbsp <input id="checkbox" type="checkbox" required>
   <label for="checkbox"> I agree to these Terms and Conditions.</label>
 </div>

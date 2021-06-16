@@ -16,7 +16,9 @@
 	line-height: 60px;
 	box-shadow: 1px 4px 2px 2px #dcdde1;
 }
-
+footer{
+	padding:30px;
+}
 
 </style>
 </head>
