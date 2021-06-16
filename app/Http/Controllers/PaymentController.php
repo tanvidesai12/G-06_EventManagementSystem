@@ -38,7 +38,7 @@ class PaymentController extends Controller
             'amount' => $request->advance,
             'phone' => $request->phone_no,
             'buyer_name' => $request->name,
-            'redirect_url' => 'http://localhost:8000/payment-success',
+            'redirect_url' => 'http://127.0.0.1:8000/payment-success',
             'send_email' => true,
             //'webhook' => 'http://www.example.com/webhook/',
             'send_sms' => true,
@@ -54,11 +54,7 @@ class PaymentController extends Controller
     }
  
     public function paymentSuccess(Request $request){
-
-       // $input = $request->all();
 	    $payment=new Payment;
-		//$booking=new Booking();
-		//$booking=Booking::find($request->id);
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payments/'.$request->get('payment_id'));
@@ -74,27 +70,13 @@ class PaymentController extends Controller
         curl_close($ch); 
 
         if ($err) {
-            $payment->name=$data->payment->buyer_name;
-            $payment->email=$data->payment->buyer_email;
-            $payment->phone_no=$data->payment->buyer_phone;
-            $payment->advance= $data->payment->amount;
-            $payment->payment_status='Failed';
-            $payment->save();
-			return redirect('payment')->withErrors('Payment Failed, Try Again!!');
+			return redirect('view_bookings')->withErrors('Payment Failed, Try Again!!');
         } else {
             $data = json_decode($response);
         }
         
         if($data->success == true) {
-            if($data->payment->status == 'Credit') {
-                
-                // Here Your Database Insert Login
-                //$input['name'] = $data->payment->buyer_name;
-                //$input['email'] = $data->payment->buyer_email;
-                //$input['phone_no'] = $data->payment->buyer_phone;
-                //$input['advance'] = $data->payment->amount;
-                //Payment::create($input);
-				
+            if($data->payment->status == 'Credit') {				
 				$payment->name=$data->payment->buyer_name;
 				$payment->email=$data->payment->buyer_email;
 				$payment->phone_no=$data->payment->buyer_phone;
@@ -108,18 +90,13 @@ class PaymentController extends Controller
 					
 					return redirect('view_bookings')->with('message','Your payment has been pay successfully, Enjoy!!');
 				}		
-				//	$booking->payment_id=$payment->id;
-				//$pay_id=$payment->id;
-				//$booking->payment_id=$pay_id;
-			//	$booking->save();
-                
-
             }
-					else {
+			else {
                 
-                return redirect('payment')->withErrors('Payment Failed, Try Again!!');
+                return redirect('view_bookings')->withErrors('Payment Failed, Try Again!!');
             }
         }
+        return redirect('view_bookings')->withErrors('Something went wrong.Payment Failed, Try Again!!');
     }
 }
 	
