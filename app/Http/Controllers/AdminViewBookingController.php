@@ -22,13 +22,14 @@ class AdminViewBookingController extends Controller
        $booking = Booking::find($bId);
        $present=event_detail::where('id', function($query) use ($bId) {
                 $query->select('event_id')->from('bookings')->where('id',$bId);
-            })->where('event_date', '<', date('Y-m-d'))->get();
-       if($booking && $present && $booking->booking_status!='Cancelled' && $booking->booking_status!='Confirmed' && $booking->booking_status!='Rejected'){
+            })->where('event_date', '>', date('Y-m-d'))->get();
+
+       if($booking && $present->isNotEmpty() && $booking->booking_status!='Cancelled' && $booking->booking_status!='Confirmed' && $booking->booking_status!='Rejected'){
            $booking->booking_status='Confirmed';
            $booking->save();
            return redirect('admin_main')->with('message', 'Booking status confirmed successfully!');
        }
-       else if(!$present){
+       else if($present->isEmpty()){
             return redirect('admin_main')->withErrors('Event has already taken place!');
        }
        else{
@@ -40,13 +41,13 @@ class AdminViewBookingController extends Controller
        $booking = Booking::find($bId);
        $present=event_detail::where('id', function($query) use ($bId) {
                 $query->select('event_id')->from('bookings')->where('id',$bId);
-            })->where('event_date', '<', date('Y-m-d'))->get();
-       if($booking && $present && $booking->booking_status!='Cancelled' && $booking->booking_status!='Confirmed' && $booking->booking_status!='Rejected'){
+            })->where('event_date', '>', date('Y-m-d'))->get();
+       if($booking && $present->isNotEmpty() && $booking->booking_status!='Cancelled' && $booking->booking_status!='Confirmed' && $booking->booking_status!='Rejected'){
            $booking->booking_status='Rejected';
            $booking->save();
            return redirect('admin_main')->with('message', 'Booking status rejected successfully!');
        }
-       else if(!$present){
+       else if($present->isEmpty()){
             return redirect('admin_main')->withErrors('Event has already taken place!');
        }
        else{

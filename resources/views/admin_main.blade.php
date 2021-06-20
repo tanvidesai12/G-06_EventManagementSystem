@@ -27,6 +27,11 @@
         {{ session('message') }}
     </div>
 @endif	
+@if($errors->any())
+	<div class="alert alert-danger m-0" >
+		{{ $errors->first() }}
+	</div>
+@endif
 <div class="space">
 <h1 style="text-align:center">Booking Details</h1>
 </div>
